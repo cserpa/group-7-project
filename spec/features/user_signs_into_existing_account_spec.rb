@@ -2,10 +2,10 @@ require 'spec_helper'
 require "rails_helper"
 
 
-feature "User can log in with existing account" do
+feature "user can log in/out of existing account" do
   let!(:user) { User.create!(email: "cameron@example.com", first_name: 'Cameron', last_name: 'Cogan', password: 'password') }
 
-  scenario 'with valid information' do
+  scenario "successful sign-in of inauthenticated with valid information" do
     visit root_path
     click_link 'Sign In'
     fill_in "Email", with: user.email
@@ -15,7 +15,7 @@ feature "User can log in with existing account" do
     expect(page).to have_content("Signed in successfully.")
   end
 
-  scenario "with invalid information" do
+  scenario "unsuccessful sign-in of inautheticated user with invalid password" do
     visit root_path
     click_link 'Sign In'
     fill_in "Email", with: user.email
@@ -25,4 +25,14 @@ feature "User can log in with existing account" do
     expect(page).to have_content("Invalid Email or password.")
   end
 
+  scenario "successful sign-out of authenticated user" do
+    visit root_path
+    click_link 'Sign In'
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+    click_link "Sign Out"
+
+    expect(page).to have_content("Signed out successfully.")
+  end
 end
