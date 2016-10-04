@@ -1,0 +1,14 @@
+<h1>Historical Figure Index<h1>
+
+
+<ul>
+<% @figures.each do |figure| %>
+  <li>
+    <%= link_to figure.name, figure_path(figure) %> - <%= figure.occupation %>
+  </li>
+<% end %>
+</ul>
+
+<p>Highest Rated - <%= @figures[0] %></p>
+<p>Lowest Rated - <%= @figures[-1] %></p>
+<p>Recently Added - <%= @figures_recent[0] %></p>
