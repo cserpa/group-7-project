@@ -5,7 +5,7 @@ require "rails_helper"
 feature "User can create a new account" do
 
   scenario 'with valid information' do
-    visit '/'
+    visit root_path
     click_link 'Sign Up'
     expect(page).to have_content("Sign Up")
     fill_in "First Name", with: "John"
@@ -27,11 +27,19 @@ feature "User can create a new account" do
 
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content("Sign Out")
-
   end
 
   scenario "without matching passwords" do
+    visit root_path
+    click_link 'Sign Up'
+    expect(page).to have_content("Sign Up")
+    fill_in "First Name", with: "John"
+    fill_in "Last Name", with: "Doe"
+    fill_in "Email", with: "test@gmail.com"
+    fill_in "Password", with: "matching"
+    fill_in "Password Confirmation", with: "notmatching"
+    click_button "Sign Up"
 
+    expect(page).to have_content("Password confirmation doesn't match Password")
   end
-
 end
