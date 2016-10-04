@@ -2,12 +2,18 @@ require 'spec_helper'
 require "rails_helper"
 
 
-feature "User can create a new account" do
+feature "An inauthenticated user can create a new account" do
 
-  scenario 'with valid information' do
+  scenario "sees sign up link at the root page" do
     visit root_path
     click_link 'Sign Up'
+    
     expect(page).to have_content("Sign Up")
+  end
+
+  scenario "successfully creates a new account" do
+    visit root_path
+    click_link 'Sign Up'
     fill_in "First Name", with: "John"
     fill_in "Last Name", with: "Doe"
     fill_in "Email", with: "test@gmail.com"
@@ -16,23 +22,19 @@ feature "User can create a new account" do
     click_button "Sign Up"
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
-    expect(page).to have_content("Sign Out")
-
   end
 
-  scenario "without valid informatino" do
+  scenario "sees errors when supplying invalid information" do
     visit root_path
     click_link 'Sign Up'
     click_button 'Sign Up'
 
     expect(page).to have_content("can't be blank")
-    expect(page).to_not have_content("Sign Out")
   end
 
-  scenario "without matching passwords" do
+  scenario "sees error when supplying mismatched passwords" do
     visit root_path
     click_link 'Sign Up'
-    expect(page).to have_content("Sign Up")
     fill_in "First Name", with: "John"
     fill_in "Last Name", with: "Doe"
     fill_in "Email", with: "test@gmail.com"
