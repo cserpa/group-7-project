@@ -10,8 +10,24 @@
 
   <body>
     <% flash.each do |key, value| %>
+<<<<<<< HEAD
       <%= value  %>
     <% end %>
+=======
+      <h3><%=value%></h3>
+    <% end %>
+    <nav>
+      <ul>
+        <%- if user_signed_in? -%>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'Profile', user_path(current_user) %></li>
+        <%- else -%>
+        <li> <%= link_to 'Sign Up', new_user_registration_path  %></li>
+        <li> <%= link_to 'Sign In', new_user_session_path  %></li>
+        <%- end -%>
+      </ul>
+    </nav>
+>>>>>>> e6e9e757a80642fdc1d5072ec3fd95b3f5178e05
     <%= yield %>
   </body>
 </html>
