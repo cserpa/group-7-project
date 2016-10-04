@@ -1,8 +1,5 @@
 require "rails_helper"
 
-# [] The user should be allowed to add a new figure.
-# [] The user must include the figure's name, occupation, era, nationality, and claim to fame
-
 feature "As an authenticated user, I want to add a historical figure so that others can review it" do
 
   scenario "user adds new historical figure successfully" do
