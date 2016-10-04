@@ -9,10 +9,8 @@ feature "visitors see the index page" do
   scenario "visitor visits the index page" do
 
     visit figures_path
-    expect(page).to have_content "Hisotrical Figure Index"
+    expect(page).to have_content "Historical Figure Index"
     expect(page).to have_content "Abraham Lincoln - politician"
-
-
     end
 
   scenario "clicking on a figure will take the user to the Figure's show page" do

@@ -40,9 +40,6 @@ feature "visitors see profile and reviews on show page" do
     sign_in as myles
     visit figure_path(lincoln)
 
-
-    expect(page).to_not have_content "Submit"
-
     choose "5"
     fill_in "Review", with: "Lincoln for the win, kid."
     click_button "Submit"
@@ -50,6 +47,18 @@ feature "visitors see profile and reviews on show page" do
     expect(page).to have_content ("New review added!")
     expect(page).to have_content ("Lincoln for the win, kid.")
   end
+
+  scenario "user can't submit a review over 140 characters"
+    sign_in as myles
+    visit figure_path(lincoln)
+
+    choose "5"
+    fill_in "Review", with: "This is a huge block of text that is over 140 characters in length and shouldn't be accepted by the system because it is too long and therefore an invalid entry. For more information on lengths of text fields, please visit www.whocares.org. Ok that is probably long enough."
+    click_button "Submit"
+
+    expect(page).to have_content ("Review not submitted: review should be less than 140 characters.")
+  end
+
 
   scenario "show page has sign-in prompt for users who aren't signed in" do
     visit figure_path(lincoln)
@@ -80,8 +89,10 @@ feature "visitors see profile and reviews on show page" do
 
     click_button "Upvote"
     expect(page).not_to have_content("Upvote")
+    expect(page).to have_content("Downvote")
     click_button "Downvote"
     expect(page).to have_content("Upvote")
+    expect(page).not_to have_content("Downvote")
   end
 
 end
