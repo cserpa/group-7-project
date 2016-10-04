@@ -1,9 +1,5 @@
 require "rails_helper"
 
-# [] The category show page should display a list of H.F.s associated with that tag/category.
-# [] They should be ordered by overall rating.
-
-
 feature "visitor goes to category show page" do
   let!(:myles) { User.create!(name: 'Myles') }
   let!(:cameron) { User.create!(name: 'Cameron') }
