@@ -22,7 +22,7 @@ feature 'visitor goes to category show page' do
                                   claim_to_fame: 'Ended slavery',
                                   average_rating: 5) }
   let!(:rating_one) { Rating.create!(rating: 5,
-                                     review: 'I love Lincoln!'
+                                     review: 'I love Lincoln!',
                                      user_id: myles.id,
                                      figure_id: lincoln.id) }
   let!(:rating_two) { Rating.create!(rating: 0,
@@ -32,7 +32,8 @@ feature 'visitor goes to category show page' do
   let!(:politician) { Category.create!(name: 'Politicians') }
   let!(:lincoln_politician) { Categorization.create!(figure_id: lincoln.id,
                                                     category_id: politician.id)}
-  let!(:hitler_politician) { Categorization.create!( figure_id: hitler.id,
+  let!(:hitler_politician) { Categorization.create!(figure_id: hitler.id,
+                                                    category_id: politician.id)}
 
   scenario 'visitor goes to category page' do
     visit category_path(politician)
