@@ -4,7 +4,6 @@ require "rails_helper"
 
 
 feature 'An inauthenticated user can create a new account' do
-
   scenario 'sees sign up link at the root page' do
     visit root_path
     click_link 'Sign Up'
