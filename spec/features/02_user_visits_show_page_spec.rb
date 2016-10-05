@@ -26,8 +26,7 @@ feature 'visitors see profile and reviews on show page' do
       occupation: 'Politician',
       era: "1800's",
       nationality: 'American',
-      claim_to_fame: 'Ended slavery',
-      average_rating: 5
+      claim_to_fame: 'Ended slavery'
     )
   end
 
