@@ -1,7 +1,12 @@
 class User < ActiveRecord::Base
   has_many :ratings
   has_many :votes
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, presence: true
-
+   validates :email, presence: true, length: { minimum: 6, maximum: 30 }, uniqueness: true
+   validates :first_name, presence: true
+   validates :last_name, presence: true
 end
