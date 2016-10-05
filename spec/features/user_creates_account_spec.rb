@@ -43,6 +43,6 @@ feature 'An inauthenticated user can create a new account' do
     fill_in 'Password Confirmation', with: 'notmatching'
     click_button 'Sign Up'
 
-    expect(page).to have_content('Password confirmation doesn\'t match Password')
+    expect(page).to have_content('confirmation doesn\'t match Password')
   end
 end
