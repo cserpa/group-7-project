@@ -1,13 +1,34 @@
+# frozen_string_literal: true
 class FiguresController < ApplicationController
 
   def index
-    @figures = Figure.all.order(average_rating: :desc)
-    @figures_recent = Figure.all.order(updated_at: :desc)
+    @figures = Figure.all.order(updated_at: :desc)
+
+    @figures_with_average_rating = {}
+
+    @figures.each do |figure|
+      ratings = Rating.where(figure_id: figure.id)
+      sum = 0
+      ratings.each do |rating|
+        sum += rating.rating
+      end
+      average = sum.to_f / ratings.count
+      @figures_with_average_rating[figure.id] = average
+    end
   end
 
   def show
     @figure = Figure.find(params[:id])
     @ratings = Rating.where(figure_id: @figure.id)
+    @rating = Rating.new
+    @ratings_collection = Rating::RATINGS
+    @current_user = current_user
+    @average_rating = nil
+    sum = 0
+    @ratings.each do |rating|
+      sum += rating.rating
+    end
+    @average_rating = sum.to_f / @ratings.length
   end
 
   def new
@@ -30,5 +51,5 @@ class FiguresController < ApplicationController
 
   def figure_params
     params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame)
-  end  
+  end
 end
