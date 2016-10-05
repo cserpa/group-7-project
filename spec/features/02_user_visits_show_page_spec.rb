@@ -12,26 +12,32 @@ feature 'visitors see profile and reviews on show page' do
   end
 
   let!(:cameron) do
-    User.create!(first_name: 'Cameron',
+    User.create!(
+      first_name: 'Cameron',
       last_name: 'Cogan',
       email: 'cameron@example.com',
-      password: 'password')
+      password: 'password'
+    )
   end
 
   let!(:lincoln) do
-    Figure.create!(name: 'Abraham Lincoln',
+    Figure.create!(
+      name: 'Abraham Lincoln',
       occupation: 'Politician',
       era: "1800's",
       nationality: 'American',
       claim_to_fame: 'Ended slavery',
-      average_rating: 5)
+      average_rating: 5
+    )
   end
 
   let!(:rating_one) do
-    Rating.create!(rating: 5,
+    Rating.create!(
+      rating: 5,
       review: 'I love Lincoln, this dude was bomb. I am being him for Halloween.',
       user_id: myles.id,
-      figure_id: lincoln.id)
+      figure_id: lincoln.id
+    )
   end
 
   scenario 'show page has profile info' do
@@ -48,6 +54,6 @@ feature 'visitors see profile and reviews on show page' do
     visit figure_path(lincoln)
 
     expect(page).to have_content 'Aggregate Score: 5'
-    expect(page).to have_content (rating_one.review)
+    expect(page).to have_content rating_one.review
   end
 end
