@@ -31,9 +31,9 @@ feature 'visitor goes to category show page' do
                                      figure_id: hitler.id) }
   let!(:politician) { Category.create!(name: 'Politicians') }
   let!(:lincoln_politician) { Categorization.create!(figure_id: lincoln.id,
-                                                  category_id: politician.id ) }
+                                                    category_id: politician.id)}
   let!(:hitler_politician) { Categorization.create!( figure_id: hitler.id,
-                                                  category_id: politician.id ) }
+                                                    category_id: politician.id)}
 
   scenario 'visitor goes to category page' do
     visit category_path(politician)
