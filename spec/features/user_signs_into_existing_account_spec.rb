@@ -1,13 +1,15 @@
 # frozen_string_literal: true
-
 require 'spec_helper'
 require "rails_helper"
 
 feature 'user can log in/out of existing account' do
-  let!(:user) do User.create!(email: 'cameron@example.com',
-    first_name: 'Cameron',
-    last_name: 'Cogan',
-    password: 'password')
+  let!(:user) do
+    User.create!(
+      email: 'cameron@example.com',
+      first_name: 'Cameron',
+      last_name: 'Cogan',
+      password: 'password'
+    )
   end
 
   scenario 'successful sign-in of inauthenticated with valid information' do
