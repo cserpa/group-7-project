@@ -22,12 +22,12 @@ feature 'visitor goes to category show page' do
 
   let!(:hitler) do
     Figure.create!(
-       name: 'Adolf Hitler',
-       occupation: 'Dictator',
-       era: "1900's",
-       nationality: 'Austrian',
-       claim_to_fame:'Killed six million people',
-       average_rating: 0
+      name: 'Adolf Hitler',
+      occupation: 'Dictator',
+      era: "1900's",
+      nationality: 'Austrian',
+      claim_to_fame: 'Killed six million people',
+      average_rating: 0
     )
   end
 
