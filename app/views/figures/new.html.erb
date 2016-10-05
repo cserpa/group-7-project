@@ -1,0 +1,34 @@
+<h1>Add a New Historical Figure</h1>
+
+<%= form_for(@figure) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :occupation %>
+    <%= f.text_field :occupation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :era %>
+    <%= f.text_field :era %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nationality %>
+    <%= f.text_field :nationality %>
+  </div>
+
+  <div class="field">
+    <%= f.label :claim_to_fame, "Claim to Fame" %>
+    <%= f.text_field :claim_to_fame %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Add Historical Figure' %>
+  </div>
+
+<% end %>

@@ -1,0 +1,16 @@
+<h1>@figure.name<h1>
+
+  <p>Name: <%= @figure.name %></p>
+  <p>Occupation: <%= @figure.occupation %></p>
+  <p>Era: <%= @figure.era %></p>
+  <p>Nationality: <%= @figure.nationality %></p>
+  <p>Claim to fame: <%= @figure.claim_to_fame %></p>
+  <p>Aggregate Score: <%= @figure.average_rating %></p>
+
+  <ul>
+    <% @ratings.each do |rating| %>
+    <li>
+      Rating: <%= rating.rating %>. <%= rating.review %>
+    </li>
+    <% end %>
+  </ul>
