@@ -34,7 +34,8 @@ feature 'visitors see profile and reviews on show page' do
   let!(:rating_one) do
     Rating.create!(
       rating: 5,
-      review: 'I love Lincoln, this dude was bomb. I am being him for Halloween.',
+      review: 'I love Lincoln, this dude was bomb.
+               I am being him for Halloween.',
       user_id: myles.id,
       figure_id: lincoln.id
     )
