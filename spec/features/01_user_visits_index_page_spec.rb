@@ -11,14 +11,12 @@ feature 'visitors see the index page' do
 
   scenario 'clicking on a figure will take the user to the Figure\'s show page' do
     visit figures_path
-
     click_link 'Abraham Lincoln'
     expect(current_path).to eq figure_path(lincoln)
   end
 
   scenario 'Figures should be arranged by category' do
     visit figures_path
-
     expect(page).to have_content 'Highest Rated'
     expect(page).to have_content 'Lowest Rated'
     expect(page).to have_content 'Recently Added'
