@@ -3,17 +3,9 @@ class FiguresController < ApplicationController
 
   def index
     @figures = Figure.all.order(updated_at: :desc)
-
     @figures_with_average_rating = {}
-
     @figures.each do |figure|
-      ratings = Rating.where(figure_id: figure.id)
-      sum = 0
-      ratings.each do |rating|
-        sum += rating.rating
-      end
-      average = sum.to_f / ratings.count
-      @figures_with_average_rating[figure.id] = average
+      @figures_with_average_rating[figure.id] = figure.average_rating
     end
   end
 
@@ -23,12 +15,7 @@ class FiguresController < ApplicationController
     @rating = Rating.new
     @ratings_collection = Rating::RATINGS
     @current_user = current_user
-    @average_rating = nil
-    sum = 0
-    @ratings.each do |rating|
-      sum += rating.rating
-    end
-    @average_rating = sum.to_f / @ratings.length
+    @average_rating = @figure.average_rating
   end
 
   def new

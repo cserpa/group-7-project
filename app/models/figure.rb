@@ -10,5 +10,13 @@ class Figure < ActiveRecord::Base
   validates :era, presence: true
   validates :claim_to_fame, presence: true
 
-
+  def average_rating
+    ratings = Rating.where(figure_id: self.id)
+    average_rating = nil
+    sum = 0
+    ratings.each do |rating|
+      sum += rating.rating
+    end
+    average_rating = sum.to_f / ratings.length
+  end
 end
