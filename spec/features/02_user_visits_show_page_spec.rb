@@ -26,8 +26,7 @@ feature 'visitors see profile and reviews on show page' do
       occupation: 'Politician',
       era: "1800's",
       nationality: 'American',
-      claim_to_fame: 'Ended slavery',
-      average_rating: 5
+      claim_to_fame: 'Ended slavery'
     )
   end
 
@@ -44,7 +43,7 @@ feature 'visitors see profile and reviews on show page' do
   scenario 'show page has profile info' do
     visit figure_path(lincoln)
 
-    expect(page).to have_content 'Name: Abraham Lincoln'
+    expect(page).to have_content 'Abraham Lincoln'
     expect(page).to have_content 'Occupation: Politician'
     expect(page).to have_content "Era: 1800's"
     expect(page).to have_content 'Nationality: American'
@@ -54,7 +53,7 @@ feature 'visitors see profile and reviews on show page' do
   scenario 'show page has review info' do
     visit figure_path(lincoln)
 
-    expect(page).to have_content 'Aggregate Score: 5'
+    expect(page).to have_content 'Average Rating: 5'
     expect(page).to have_content rating_one.review
   end
 end

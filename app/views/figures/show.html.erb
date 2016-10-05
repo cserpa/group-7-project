@@ -1,16 +1,46 @@
-<h1>@figure.name<h1>
+<h1> <%= @figure.name %><h1>
 
-  <p>Name: <%= @figure.name %></p>
-  <p>Occupation: <%= @figure.occupation %></p>
-  <p>Era: <%= @figure.era %></p>
-  <p>Nationality: <%= @figure.nationality %></p>
-  <p>Claim to fame: <%= @figure.claim_to_fame %></p>
-  <p>Aggregate Score: <%= @figure.average_rating %></p>
+<p>Occupation: <%= @figure.occupation %></p>
+<p>Era: <%= @figure.era %></p>
+<p>Nationality: <%= @figure.nationality %></p>
+<p>Claim to fame: <%= @figure.claim_to_fame %></p>
 
-  <ul>
-    <% @ratings.each do |rating| %>
+<p>Average Rating: <%= @average_rating %></p>
+
+<h3>Submit a Rating</h3>
+
+
+<% if @current_user %>
+  <%= form_for(@rating) do |f| %>
+
+    <div class="row">
+      <%= f.label :rating %>
+      <%= f.collection_radio_buttons(:rating, @ratings_collection, :first, :last) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :review, 'Review' %>
+      <%= f.text_field :review %>
+    </div>
+
+    <div class="field" hidden="true">
+      <%= f.text_field :figure_id, value: @figure.id %>
+    </div>
+
+    <div class="field" hidden="true">
+      <%= f.text_field :user_id, value: @current_user.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Submit Rating'%>
+    </div>
+  <% end %>
+<% end %>
+
+<ul>
+  <% @ratings.each do |rating| %>
     <li>
-      Rating: <%= rating.rating %>. <%= rating.review %>
+      <%= rating.review %>
     </li>
-    <% end %>
-  </ul>
+  <% end %>
+</ul>

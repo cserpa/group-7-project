@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org/'
 ruby '2.3.1'
 
@@ -7,6 +8,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
+gem 'rubocop'
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
