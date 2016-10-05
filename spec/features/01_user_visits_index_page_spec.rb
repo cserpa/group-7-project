@@ -10,7 +10,7 @@ feature 'visitors see the index page' do
       nationality: 'American',
       claim_to_fame: 'Ended slavery',
       average_rating: 5
-      )
+    )
   end
 
   scenario 'visitor visits the index page' do
