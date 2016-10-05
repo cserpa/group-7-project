@@ -54,7 +54,7 @@ feature 'visitor goes to category show page' do
   let!(:lincoln_politician) do
     Categorization.create!(figure_id: lincoln.id,
       category_id: politician.id)
-  do
+  end
 
   let!(:hitler_politician) do
     Categorization.create!(figure_id: hitler.id,
