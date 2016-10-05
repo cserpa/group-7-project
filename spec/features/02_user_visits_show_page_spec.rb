@@ -3,10 +3,12 @@ require 'rails_helper'
 
 feature 'visitors see profile and reviews on show page' do
   let!(:myles) do
-    User.create!(first_name: 'Myles',
+    User.create!(
+      first_name: 'Myles',
       last_name: 'Olson',
       email: 'myles@example.com',
-      password: 'password')
+      password: 'password'
+    )
   end
 
   let!(:cameron) do
