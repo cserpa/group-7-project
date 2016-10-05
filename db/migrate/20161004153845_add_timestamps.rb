@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddTimestamps < ActiveRecord::Migration[5.0]
   def change
     add_column(:figures, :created_at, :datetime)
