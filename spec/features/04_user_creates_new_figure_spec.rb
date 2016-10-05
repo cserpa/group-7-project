@@ -1,10 +1,10 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 feature 'As an authenticated user, I want to add a historical figure
   so that others can review it' do
 
   scenario 'user adds new historical figure successfully' do
-
     visit new_figure_path
     expect(page).to have_content 'Add a New Historical Figure'
 
