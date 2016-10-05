@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 feature 'visitors see the index page' do
-  let!(:lincoln) {
-    Figure.create!(name: 'Abraham Lincoln',
-    occupation: 'politician',
-    era: '1800s',
-    nationality: 'American',
-    claim_to_fame: 'Ended slavery',
-    average_rating: 5)
-  }
+  let!(:lincoln) do
+    Figure.create!(
+      name: 'Abraham Lincoln',
+      occupation: 'politician',
+      era: '1800s',
+      nationality: 'American',
+      claim_to_fame: 'Ended slavery',
+      average_rating: 5)
+  end
 
   scenario 'visitor visits the index page' do
     visit figures_path
