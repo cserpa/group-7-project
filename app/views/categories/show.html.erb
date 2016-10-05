@@ -1,0 +1,11 @@
+<h1><%= @category.name %><h1>
+
+  <p>Name: <%= @category.name %></p>
+
+  <ul>
+    <% @figures.each do |figure| %>
+    <li>
+      <%= figure.name %>
+    </li>
+    <% end %>
+  </ul>
