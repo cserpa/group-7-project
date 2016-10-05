@@ -13,7 +13,6 @@ class RatingsController < ApplicationController
     end
   end
 
-
   private
 
   def rating_params
