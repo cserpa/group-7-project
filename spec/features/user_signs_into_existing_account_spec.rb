@@ -1,6 +1,6 @@
 require 'spec_helper'
 require "rails_helper"
-
+# frozen_string_literal: true
 
 feature 'user can log in/out of existing account' do
   let!(:user) { User.create!(email: 'cameron@example.com', first_name: 'Cameron', last_name: 'Cogan', password: 'password') }
