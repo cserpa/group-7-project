@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-feature 'As an authenticated user, I want to add a historical figure so that others can review it' do
+feature 'As an authenticated user, I want to add a historical figure
+  so that others can review it' do
 
   scenario 'user adds new historical figure successfully' do
 
