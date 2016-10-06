@@ -14,9 +14,6 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    # avatar = params[:user][:avatar]
-    # @user.avatar = avatar
-    # @user.save!
     if @user.update_attributes(user_params)
       flash[:notice] = 'User successfully updated'
       redirect_to user_path(@user)
