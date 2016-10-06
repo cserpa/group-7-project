@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   has_many :ratings

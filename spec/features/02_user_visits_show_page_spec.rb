@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'rails_helper'
 
 feature 'visitors see profile and reviews on show page' do

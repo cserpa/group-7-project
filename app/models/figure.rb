@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class Figure < ActiveRecord::Base
   has_many :ratings
   has_many :categorizations
