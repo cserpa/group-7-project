@@ -14,10 +14,13 @@ feature 'authenticated user adds image to profile' do
     sign_in user
     click_link 'Profile'
     click_link 'Edit Profile Picture'
-    attach_file('user_avatar', Rails.root + 'spec/fixtures/launchhalloween16_720.jpg')
+    attach_file('user_avatar', Rails.root +
+                'spec/fixtures/launchhalloween16_720.jpg')
     click_button 'Update User'
 
-    expect(page).to have_xpath("//img[contains(@src,'launchhalloween16_720.jpg')]")
+    expect(page).to have_xpath(
+      "//img[contains(@src,'launchhalloween16_720.jpg')]"
+    )
   end
 
 end
