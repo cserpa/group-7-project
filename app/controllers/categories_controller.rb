@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CategoriesController < ApplicationController
 
   def index
@@ -9,6 +10,4 @@ class CategoriesController < ApplicationController
     @figures = @category.figures
     # @categorizations = Categorization.where(category_id: @category.id)
   end
-
-
 end

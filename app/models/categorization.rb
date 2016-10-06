@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Categorization < ActiveRecord::Base
   belongs_to :figure
   belongs_to :category
