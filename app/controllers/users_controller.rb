@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    binding.pry
   end
 
   def update
