@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
-  
   has_many :ratings
-  has_many :votes
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
