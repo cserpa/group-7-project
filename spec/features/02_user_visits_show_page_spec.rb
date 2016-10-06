@@ -38,6 +38,12 @@ feature 'visitors see profile and reviews on show page' do
       user_id: myles.id,
       figure_id: lincoln.id
     )
+    Rating.create!(
+      rating: 0,
+      review: 'Lincoln was a known racist',
+      user_id: myles.id,
+      figure_id: lincoln.id
+    )
   end
 
   scenario 'show page has profile info' do
@@ -53,7 +59,7 @@ feature 'visitors see profile and reviews on show page' do
   scenario 'show page has review info' do
     visit figure_path(lincoln)
 
-    expect(page).to have_content 'Average Rating: 5'
+    expect(page).to have_content 'Average Rating: 2.5'
     expect(page).to have_content rating_one.review
   end
 end
