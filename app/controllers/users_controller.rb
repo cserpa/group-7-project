@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 class UsersController < ApplicationController
+  before_action :authorize_user, except: [:show, :edit, :update]
+  before_action :restrict_user, only: [:show, :edit, :update]
+
   def index
     @users = User.all
   end
@@ -23,7 +26,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def user_params
     params.require(:user).permit(
@@ -34,5 +37,17 @@ class UsersController < ApplicationController
       :avatar,
       :avatar_cache
     )
+  end
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
+  end
+
+  def restrict_user
+    if current_user.id != params[:id].to_i && !current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end
