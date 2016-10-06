@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class User < ActiveRecord::Base
   has_many :ratings
   has_many :votes
