@@ -13,6 +13,8 @@ gem 'fog'
 gem 'dotenv'
 gem 'dotenv-rails'
 gem 'rubocop'
+gem 'mini_magick'
+gem 'launchy'
 
 group :development, :test do
   gem 'capybara'
