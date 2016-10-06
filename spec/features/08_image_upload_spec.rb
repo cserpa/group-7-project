@@ -22,5 +22,4 @@ feature 'authenticated user adds image to profile' do
       "//img[contains(@src,'launchhalloween16_720.jpg')]"
     )
   end
-
 end
