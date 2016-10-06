@@ -1,6 +1,9 @@
+ruby:
+ confing_file: .rubocop.yml
+
 AllCops:
   Exclude:
-    - "~/db/schema.rb"
+    - db/schema
   #DisplayCopNames: true
 
 AccessorMethodName:
@@ -119,7 +122,7 @@ LineEndConcatenation:
   Enabled: false
 
 LineLength:
-  Max: 120
+  Max: 150
 
 MethodLength:
   Enabled: false
