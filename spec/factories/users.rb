@@ -13,4 +13,9 @@ FactoryGirl.define do
    era '1800s'
    claim_to_fame 'Freed the slaves'
  end
+
+ factory :rating do
+   rating 5
+   review 'This guy rocks!'
+ end
 end
