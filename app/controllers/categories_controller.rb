@@ -10,6 +10,4 @@ class CategoriesController < ApplicationController
     @figures = @category.figures
     # @categorizations = Categorization.where(category_id: @category.id)
   end
-
-
 end
