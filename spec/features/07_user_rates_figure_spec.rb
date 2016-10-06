@@ -53,10 +53,10 @@ feature 'user adds rating for historical figure' do
       explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
       odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
       voluptatem sequi nesciunt.'
-      
+
     click_button 'Submit Rating'
 
-    expect(page).to have_content 'Review is too long (maximum 140 characters)'
+    expect(page).to have_content 'Review is too long (maximum is 140 characters)'
   end
 
   scenario 'user is not signed in and cannot rate figure' do
