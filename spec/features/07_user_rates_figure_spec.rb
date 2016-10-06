@@ -9,13 +9,6 @@ require 'rails_helper'
 feature 'user adds rating for historical figure' do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:figure) { FactoryGirl.create(:figure) }
-  def sign_in(user)
-    visit root_path
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
-  end
 
   scenario 'user adds rating successfully without review' do
     sign_in(user)
