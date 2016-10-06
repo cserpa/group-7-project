@@ -46,14 +46,17 @@ feature 'user adds rating for historical figure' do
     visit figure_path(figure)
 
     choose '5'
-    fill_in 'Review', with: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-                            sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                            voluptatem sequi nesciunt.'
+    fill_in 'Review', with:
+     'Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+      accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+      illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+      explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+      odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+      voluptatem sequi nesciunt.'
+      
     click_button 'Submit Rating'
 
-    expect(page).to have_content 'Review is too long (maximum is 140 characters)'
+    expect(page).to have_content 'Review is too long (maximum 140 characters)'
   end
 
   scenario 'user is not signed in and cannot rate figure' do
