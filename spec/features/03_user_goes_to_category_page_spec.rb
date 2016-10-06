@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'rails_helper'
 
 feature 'visitor goes to category show page' do
