@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Figure < ActiveRecord::Base
   has_many :ratings
   has_many :categorizations
@@ -9,5 +10,12 @@ class Figure < ActiveRecord::Base
   validates :era, presence: true
   validates :claim_to_fame, presence: true
 
-
+  def average_rating
+    ratings = self.ratings
+    sum = 0
+    ratings.each do |rating|
+      sum += rating.rating
+    end
+    average_rating = sum.to_f / ratings.length
+  end
 end
