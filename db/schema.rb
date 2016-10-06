@@ -31,12 +31,11 @@ ActiveRecord::Schema.define(version: 20161006134601) do
   end
 
   create_table "figures", force: :cascade do |t|
-    t.string   "name",           null: false
-    t.string   "occupation",     null: false
-    t.string   "era",            null: false
-    t.string   "nationality",    null: false
-    t.string   "claim_to_fame",  null: false
-    t.float    "average_rating"
+    t.string   "name",          null: false
+    t.string   "occupation",    null: false
+    t.string   "era",           null: false
+    t.string   "nationality",   null: false
+    t.string   "claim_to_fame", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

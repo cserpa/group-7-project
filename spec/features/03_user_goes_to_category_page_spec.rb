@@ -26,8 +26,7 @@ feature 'visitor goes to category show page' do
       occupation: 'Dictator',
       era: "1900's",
       nationality: 'Austrian',
-      claim_to_fame: 'Killed six million people',
-      average_rating: 0
+      claim_to_fame: 'Killed six million people'
     )
   end
 
@@ -38,7 +37,6 @@ feature 'visitor goes to category show page' do
       era: "1800's",
       nationality: 'American',
       claim_to_fame: 'Ended slavery',
-      average_rating: 5
     )
   end
 
