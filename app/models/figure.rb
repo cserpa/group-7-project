@@ -11,7 +11,7 @@ class Figure < ActiveRecord::Base
   validates :claim_to_fame, presence: true
 
   def average_rating
-    ratings = Rating.where(figure_id: id)
+    ratings = self.ratings
     sum = 0
     ratings.each do |rating|
       sum += rating.rating
