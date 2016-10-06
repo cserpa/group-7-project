@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org/'
 ruby '2.3.1'
 
@@ -11,6 +12,7 @@ gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'fog'
 gem 'dotenv'
 gem 'dotenv-rails'
+gem 'rubocop'
 
 group :development, :test do
   gem 'capybara'
