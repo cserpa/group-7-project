@@ -29,7 +29,7 @@ feature 'admin has full ability to see site' do
     visit root_path
     sign_in user
 
-    expect{visit users_path}.to raise_error('Not Found')
+    expect { visit users_path }.to raise_error('Not Found')
   end
 
   scenario 'admin deletes a user' do
