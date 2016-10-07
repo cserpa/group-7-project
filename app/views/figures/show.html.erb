@@ -41,6 +41,14 @@
   <% @ratings.each do |rating| %>
     <li>
       <%= rating.review %>
+      <% if @current_user && @current_user.admin? %>
+        <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
+      <% end %>
     </li>
   <% end %>
 </ul>
+
+
+<% if @current_user && @current_user.admin? %>
+  <%= button_to 'Delete Figure', @figure, { method: :delete, data: { confirm: 'Are you sure?' }} %>
+  <% end %>

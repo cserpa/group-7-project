@@ -8,7 +8,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   validates :email, presence: true, length: { minimum: 6, maximum: 30 }, uniqueness: true
-   validates :first_name, presence: true
-   validates :last_name, presence: true
+  validates :role, presence: true
+  validates :email, presence: true, length: { minimum: 6, maximum: 30 }, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
+  def admin?
+    role == "admin"
+  end
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end
