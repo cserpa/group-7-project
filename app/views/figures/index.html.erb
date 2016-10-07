@@ -10,5 +10,7 @@
   </ul>
 <% end %>
 
-<p>Highest Rated - <%= @figures[0] %></p>
-<p>Lowest Rated - <%= @figures[-1] %></p>
+<% unless @figures.empty? %>
+  <p>Highest Rated - <%= @figures.first.name %></p>
+  <p>Lowest Rated - <%= @figures.last.name %></p>
+<% end %>

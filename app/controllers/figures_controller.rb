@@ -15,6 +15,7 @@ class FiguresController < ApplicationController
     @ratings_collection = Rating::RATINGS
     @current_user = current_user
     @average_rating = @figure.average_rating
+    @vote = Vote.new
   end
 
   def new

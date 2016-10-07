@@ -5,12 +5,14 @@
 <p>Nationality: <%= @figure.nationality %></p>
 <p>Claim to fame: <%= @figure.claim_to_fame %></p>
 
-<p>Average Rating: <%= @average_rating %></p>
+<% if @average_rating.is_a?(Numeric)%>
 
-<h3>Submit a Rating</h3>
-
+  <p>Average Rating: <%= @average_rating %></p>
+<% end %>
 
 <% if @current_user %>
+  <h3>Submit a Rating</h3>
+
   <%= form_for(@rating) do |f| %>
 
     <div class="row">
@@ -20,7 +22,7 @@
 
     <div class="field">
       <%= f.label :review, 'Review' %>
-      <%= f.text_field :review %>
+      <%= f.text_area :review %>
     </div>
 
     <div class="field" hidden="true">
@@ -39,8 +41,26 @@
 
 <ul>
   <% @ratings.each do |rating| %>
-    <li>
-      <%= rating.review %>
-    </li>
+    <% unless rating.review.empty? %>
+      <li>
+        <%= rating.review %>
+        <%= form_for(@vote, remote: true) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :rating_id, value: rating.id %>
+        <%= f.hidden_field :value, value: 1 %>
+        <%= f.submit "Upvote" %>
+        <% end %>
+
+        <p class="rating" id=<%= rating.id.to_s %>></p>
+
+        <%= form_for(@vote, remote: true) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :rating_id, value: rating.id %>
+        <%= f.hidden_field :value, value: -1 %>
+        <%= f.submit "Downvote" %>
+        <% end %>
+
+      </li>
+    <% end %>
   <% end %>
 </ul>
