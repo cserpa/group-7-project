@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     role == "admin"
   end
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end
