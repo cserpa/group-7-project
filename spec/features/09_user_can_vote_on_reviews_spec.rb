@@ -12,13 +12,12 @@ feature 'user can upvote or downvote a review' do
   let!(:figure) { FactoryGirl.create(:figure) }
   let!(:rating) { FactoryGirl.create(:rating, user_id: user.id, figure_id: figure.id) }
 
-  scenario 'user upvotes a review' do
+  scenario 'user upvotes a review', js: true do
     sign_in(user)
     visit figure_path(figure)
 
-    click_button 'Upvote'
+    click_on 'Upvote'
 
-    expect(page).to have_content 'Upvoted!'
     expect(page).to have_content '1'
   end
 
@@ -26,9 +25,8 @@ feature 'user can upvote or downvote a review' do
     sign_in(user)
     visit figure_path(figure)
 
-    click_button 'Downvote'
+    click 'Downvote'
 
-    expect(page).to have_content 'Downvoted!'
     expect(page).to have_content '-1'
   end
 
@@ -39,8 +37,7 @@ feature 'user can upvote or downvote a review' do
     click_button 'Upvote'
     click_button 'Upvote'
 
-    expect(page).to have_content 'You may only upvote or downvote a review once'
-    expect(page).to have_content '1'
+    expect(page).to have_content '0'
   end
 
   scenario 'user upvotes a review and then changes to downvote' do
@@ -49,12 +46,10 @@ feature 'user can upvote or downvote a review' do
 
     click_button 'Upvote'
 
-    expect(page).to have_content 'Upvoted!'
     expect(page).to have_content '1'
 
     click_button 'Downvote'
 
-    expect(page).to have_content 'Downvoted!'
-    expect(page).to have_content '0'
+    expect(page).to have_content '-1'
   end
 end

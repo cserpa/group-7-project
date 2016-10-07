@@ -46,6 +46,7 @@ feature 'visitors see profile and reviews on show page' do
   end
 
   scenario 'show page has profile info' do
+    sign_in(myles)
     visit figure_path(lincoln)
 
     expect(page).to have_content 'Abraham Lincoln'
@@ -56,6 +57,7 @@ feature 'visitors see profile and reviews on show page' do
   end
 
   scenario 'show page has review info' do
+    sign_in(myles)
     visit figure_path(lincoln)
 
     expect(page).to have_content 'Average Rating: 2.5'

@@ -23,6 +23,8 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'listen'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
 end
 
 group :test do
