@@ -45,7 +45,7 @@ class FiguresController < ApplicationController
 
   private
 
-  def get_figures
+  def display_figures
     @figures = if params[:search]
                  Figure.search(params[:search])
                else
