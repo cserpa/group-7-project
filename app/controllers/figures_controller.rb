@@ -2,9 +2,9 @@
 class FiguresController < ApplicationController
   def index
     @figures = if params[:search]
-                Figure.search(params[:search])
+                 Figure.search(params[:search])
                else
-                Figure.all
+                 Figure.all
                end
     @figures_with_average_rating = {}
     @figures.each do |figure|
