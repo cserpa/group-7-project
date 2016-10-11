@@ -49,7 +49,7 @@
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :rating_id, value: rating.id %>
         <%= f.hidden_field :value, value: 1 %>
-        <%= f.submit "Upvote" %>
+        <%= f.submit "Upvote", class: "voteButton" %>
         <% end %>
 
         <p class="rating" id=<%= rating.id.to_s %>></p>
@@ -58,7 +58,7 @@
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :rating_id, value: rating.id %>
         <%= f.hidden_field :value, value: -1 %>
-        <%= f.submit "Downvote" %>
+        <%= f.submit "Downvote", class: "voteButton" %>
         <% end %>
 
         <% if @current_user && @current_user.admin? %>

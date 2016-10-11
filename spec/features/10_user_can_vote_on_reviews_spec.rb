@@ -15,9 +15,9 @@ feature 'user can upvote or downvote a review' do
   scenario 'user upvotes a review', js: true do
     sign_in(user)
     visit figure_path(figure)
-
     click_on 'Upvote'
     expect(page).to have_content '1'
+    visit root_path
   end
 
   scenario 'user downvotes a review', js: true do

@@ -1,6 +1,11 @@
 $(document).ready(function(){
-  setInterval(updateVotes, 500);
+  setTimeout(updateVotes, 200);
+
+  $('.voteButton').on('click', function(event) {
+    setTimeout(updateVotes, 100);
+  });
 });
+
 
 var updateVotes = function() {
   var ratingElements = $(".rating");
