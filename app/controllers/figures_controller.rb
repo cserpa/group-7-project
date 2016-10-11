@@ -46,11 +46,11 @@ class FiguresController < ApplicationController
   private
 
   def display_figures
-    @figures = if params[:search]
-                 Figure.search(params[:search])
-               else
-                 Figure.all
-               end
+    if params[:search]
+      Figure.search(params[:search])
+    else
+      Figure.all
+    end
   end
 
   def figure_params
