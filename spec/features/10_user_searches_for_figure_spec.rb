@@ -6,7 +6,6 @@ feature 'user can search for figures in the search bar' do
   let!(:figure) { FactoryGirl.create(:figure) }
   let!(:figure_2) { FactoryGirl.create(:figure, name: 'George Washington') }
 
-
   scenario 'user successfully searches for figure' do
     visit root_path
 
