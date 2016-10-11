@@ -20,6 +20,7 @@ class FiguresController < ApplicationController
 
   def new
     @figure = Figure.new
+    @current_user = current_user
   end
 
   def create
@@ -44,6 +45,6 @@ class FiguresController < ApplicationController
   private
 
   def figure_params
-    params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame)
+    params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame, :user_id)
   end
 end

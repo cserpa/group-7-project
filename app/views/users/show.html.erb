@@ -2,6 +2,12 @@
 
 <%= image_tag(@user.avatar.large_avatar) %>
 
+<h3>Your Figures:</h3>
+<%= render 'layouts/users/show_figure_list' %>
+
 <%= link_to 'Edit Profile Picture', edit_user_path(@user) %>
+<%= link_to 'Edit Account Info', edit_user_registration_path(@user) %>
+
+
 
 <%= button_to 'Delete Account', @user, { method: :delete, data: { confirm: 'Are you sure?' }} %>
