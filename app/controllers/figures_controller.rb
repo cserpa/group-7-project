@@ -34,6 +34,13 @@ class FiguresController < ApplicationController
     end
   end
 
+  def destroy
+    @figure = Figure.find(params[:id])
+    @figure.destroy
+    flash[:notice] = 'History no longer recognizes this figure.'
+    redirect_to root_path
+  end
+
   private
 
   def figure_params

@@ -12,6 +12,13 @@ class RatingsController < ApplicationController
     end
   end
 
+  def destroy
+    @rating = Rating.find(params[:id])
+    @rating.destroy
+    flash[:notice] = 'History no longer recognizes this review.'
+    redirect_to figure_path(@rating.figure)
+  end
+
   private
 
   def rating_params
