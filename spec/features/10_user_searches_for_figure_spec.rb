@@ -14,6 +14,12 @@ feature 'user can search for figures in the search bar' do
 
     expect(page).to have_content 'Abraham Lincoln'
     expect(page).to_not have_content 'George Washington'
+
+    fill_in "search", with: 'George'
+    click_button "Search"
+
+    expect(page).to have_content 'George Washington'
+    expect(page).to_not have_content 'Abraham Lincoln'
   end
 
   scenario 'user searches for figure that does not exist' do
