@@ -5,6 +5,7 @@ class RatingsController < ApplicationController
 
     if @rating.save
       flash[:notice] = 'Rating submitted successfully!'
+      NotifierMailer.notify(@figure.user).deliver
       redirect_to figure_path(@figure)
     else
       flash[:notice] = @rating.errors.full_messages.join(', ')

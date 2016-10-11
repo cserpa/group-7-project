@@ -27,6 +27,10 @@
     <%= f.text_field :claim_to_fame %>
   </div>
 
+  <div class="field" hidden="true">
+    <%= f.text_field :user_id, value: @current_user.id %>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Add Historical Figure' %>
   </div>
