@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 class FiguresController < ApplicationController
-
   def index
-    @figures = Figure.all.order(updated_at: :desc)
+    @figures = Figure.all
+    if params[:search]
+      binding.pry
+      @figures = Figure.search(params[:search])
+    else
+      @figures = Figure.all
+    end
     @figures_with_average_rating = {}
     @figures.each do |figure|
       @figures_with_average_rating[figure.id] = figure.average_rating
