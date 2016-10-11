@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class FiguresController < ApplicationController
   def index
-    @figures = get_figures
+    @figures = display_figures
     if params[:search]
       @figures = Figure.search(params[:search])
     end
