@@ -1,5 +1,6 @@
 require 'coveralls'
 require 'capybara/rspec'
+require 'capybara-webkit'
 # require 'capybara/webkit/matchers'
 Capybara.javascript_driver = :webkit
 Coveralls.wear!('rails')

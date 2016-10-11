@@ -14,10 +14,10 @@ feature 'user can upvote or downvote a review' do
 
   scenario 'user upvotes a review', js: true do
     sign_in(user)
+    binding.pry
     visit figure_path(figure)
 
     click_on 'Upvote'
-
     expect(page).to have_content '1'
   end
 
