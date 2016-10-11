@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class FiguresController < ApplicationController
   def index
-    @figures = Figure.all
+    @figures = get_figures
     if params[:search]
       @figures = Figure.search(params[:search])
     end
@@ -44,6 +44,14 @@ class FiguresController < ApplicationController
   end
 
   private
+
+  def get_figures
+    @figures = if params[:search]
+                 Figure.search(params[:search])
+               else
+                 Figure.all
+               end
+  end
 
   def figure_params
     params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame)
