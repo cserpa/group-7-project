@@ -20,6 +20,6 @@ class Figure < ActiveRecord::Base
   end
 
   def self.search(search)
-    where('name ILIKE ?', '%#{search}')
+    where('name ILIKE ?', "%#{search}%")
   end
 end

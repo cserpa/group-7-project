@@ -3,7 +3,6 @@ class FiguresController < ApplicationController
   def index
     @figures = Figure.all
     if params[:search]
-      binding.pry
       @figures = Figure.search(params[:search])
     else
       @figures = Figure.all

@@ -14,9 +14,9 @@
       <h3><%=value%></h3>
     <% end %>
     <nav>
-      <%= form_tag(figures_path, :method => 'get', id: 'search-form') do %>
+      <%= form_tag(figures_path, method: 'get', id: 'search-form') do %>
         <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "Search", name: nil %>
       <% end %>
       <ul>
         <%- if user_signed_in? -%>
