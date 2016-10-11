@@ -5,17 +5,17 @@ FactoryGirl.define do
    email 'cserpa123@gmail.com'
    password 'devise'
  end
-
- factory :figure do
-   name 'Abraham Lincoln'
-   occupation 'President'
-   nationality 'American'
-   era '1800s'
-   claim_to_fame 'Freed the slaves'
- end
-
- factory :rating do
-   rating 5
-   review 'This guy rocks!'
- end
+ # 
+ # factory :figure do
+ #   name 'Abraham Lincoln'
+ #   occupation 'President'
+ #   nationality 'American'
+ #   era '1800s'
+ #   claim_to_fame 'Freed the slaves'
+ # end
+ #
+ # factory :rating do
+ #   rating 5
+ #   review 'This guy rocks!'
+ # end
 end
