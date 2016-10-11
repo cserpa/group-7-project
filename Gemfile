@@ -16,8 +16,6 @@ gem 'mini_magick'
 
 group :development, :test do
   gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'
@@ -26,6 +24,7 @@ group :development, :test do
   gem 'listen'
   gem 'capybara-webkit'
   gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 group :test do
