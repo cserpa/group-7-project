@@ -4,7 +4,6 @@
   <!-- Fixed navigation bar content -->
 <!-- </nav> -->
 
-<<<<<<< HEAD
 <h1 align="center"> <%= @figure.name %><h1>
 
 <p align='center'>Occupation: <%= @figure.occupation %></p>
@@ -14,10 +13,8 @@
 
 <p align='center'>Average Rating: <%= @average_rating %></p>
 <h3 align='center'>Submit a Rating</h3>
-=======
-<% if @average_rating.is_a?(Numeric)%>
->>>>>>> c4805076279ad3d2cbb2c8d40818afcfc4c23c0c
 
+<% if @average_rating.is_a?(Numeric)%>
   <p>Average Rating: <%= @average_rating %></p>
 <% end %>
 
@@ -40,15 +37,12 @@
       <%= f.text_field :figure_id, value: @figure.id %>
     </div>
 
-<<<<<<< HEAD
     <div class align ='center'='field' hidden='true'>
       <%= f.text_field :user_id, value: @current_user.id %>
     </div>
 
     <div class align='center'='actions'>
-=======
     <div class="actions">
->>>>>>> c4805076279ad3d2cbb2c8d40818afcfc4c23c0c
       <%= f.submit 'Submit Rating'%>
     </div>
   <% end %>
@@ -56,7 +50,6 @@
 
 <ul>
   <% @ratings.each do |rating| %>
-<<<<<<< HEAD
     <li align ='center'>
       <%='Reviews'%> <br/>
       <%= rating.review %>
@@ -64,7 +57,7 @@
         <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
       <% end %>
     </li>
-=======
+
     <% unless rating.review.empty? %>
       <li>
         <%= rating.review %>
@@ -73,7 +66,6 @@
         <% end %>
       </li>
     <% end %>
->>>>>>> c4805076279ad3d2cbb2c8d40818afcfc4c23c0c
   <% end %>
 </ul>
 
