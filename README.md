@@ -3,6 +3,12 @@
 ![Coverage Status](https://coveralls.io/repos/cserpa/group-7-project/badge.png)
 
 # README
+Authors:
+Cameron Cogan
+Zachary Cutler
+Myles Olson
+Chris Serpa
+
 
 * Ruby version: 2.3.1
 
@@ -29,8 +35,13 @@
 * Deployment instructions
 
 * ...
+
 # Figurate
 This is an app for rating historical figures, intended for entertainment purposes.
 Users can create historical figures and then rate them, as well as rating the figures
 other people create. Each figure has an aggregate rating. The index page keeps track
 of the highest and lowest rated figures. You can also upvote or downvote someone's review.
+
+
+Link to Heroku App:
+https://quiet-reaches-97958.herokuapp.com/
