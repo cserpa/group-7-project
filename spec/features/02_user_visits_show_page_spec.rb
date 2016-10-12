@@ -25,7 +25,8 @@ feature 'visitors see profile and reviews on show page' do
       occupation: 'Politician',
       era: "1800's",
       nationality: 'American',
-      claim_to_fame: 'Ended slavery'
+      claim_to_fame: 'Ended slavery',
+      user_id: cameron.id
     )
   end
 

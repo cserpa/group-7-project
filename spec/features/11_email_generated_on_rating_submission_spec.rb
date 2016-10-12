@@ -12,6 +12,7 @@ feature 'user can upvote or downvote a review' do
 
     choose '5'
     click_button 'Submit Rating'
+    binding.pry
     sleep 10
     expect(ActionMailer::Base.deliveries.count).to eq(current_email_value + 1)
   end

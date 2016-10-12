@@ -7,7 +7,7 @@ require 'rails_helper'
 
 feature 'user adds rating for historical figure' do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:figure) { FactoryGirl.create(:figure) }
+  let!(:figure) { FactoryGirl.create(:figure, user_id: user.id) }
 
   scenario 'user adds rating successfully without review' do
     sign_in(user)

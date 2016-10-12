@@ -1,13 +1,15 @@
 require 'rails_helper'
 
 feature 'visitors see the index page' do
+  let!(:user) { FactoryGirl.create(:user) }
   let!(:lincoln) do
     Figure.create!(
       name: 'Abraham Lincoln',
       occupation: 'politician',
       era: '1800s',
       nationality: 'American',
-      claim_to_fame: 'Ended slavery'
+      claim_to_fame: 'Ended slavery',
+      user_id: user.id
     )
   end
 
