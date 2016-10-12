@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :fog

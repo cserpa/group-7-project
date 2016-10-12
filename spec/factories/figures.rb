@@ -5,5 +5,6 @@ FactoryGirl.define do
     nationality 'American'
     era '1800s'
     claim_to_fame 'Freed the slaves'
+    user_id 1
   end
 end

@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class UsersController < ApplicationController
   before_action :restrict_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, except: [:show, :edit, :update, :destroy]

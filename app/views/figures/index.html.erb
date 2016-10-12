@@ -10,9 +10,12 @@
   </ul>
 <% end %>
 
+
+<% unless @figures.empty? %>
+  <p>Highest Rated - <%= @figures.first.name %></p>
+  <p>Lowest Rated - <%= @figures.last.name %></p>
+<% end %>
+
 <% if @figures.blank? %>
   <h4>There are no figures that match <%= params[:search] %></h4>
 <% end %>
-
-<p>Highest Rated - <%= @figures[0] %></p>
-<p>Lowest Rated - <%= @figures[-1] %></p>

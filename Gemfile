@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 source 'https://rubygems.org/'
 ruby '2.3.1'
 
@@ -17,14 +16,14 @@ gem 'mini_magick'
 
 group :development, :test do
   gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'listen'
+  gem 'database_cleaner'
 end
 
 group :test do

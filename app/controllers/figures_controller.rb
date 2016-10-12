@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class FiguresController < ApplicationController
   def index
     @figures = display_figures
@@ -18,14 +17,18 @@ class FiguresController < ApplicationController
     @ratings_collection = Rating::RATINGS
     @current_user = current_user
     @average_rating = @figure.average_rating
+    @vote = Vote.new
   end
 
   def new
     @figure = Figure.new
+    @current_user = current_user
   end
 
   def create
     @figure = Figure.new(figure_params)
+    @current_user = current_user
+    @figure.user = @current_user
 
     if @figure.save
       flash[:notice] = "Figure added successfully"
@@ -54,6 +57,6 @@ class FiguresController < ApplicationController
   end
 
   def figure_params
-    params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame)
+    params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame, :user_id)
   end
 end
