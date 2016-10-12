@@ -45,23 +45,6 @@
     <% unless rating.review.empty? %>
       <li>
         <%= rating.review %>
-
-        <%= form_for(@vote, remote: true) do |f| %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :rating_id, value: rating.id %>
-        <%= f.hidden_field :value, value: 1 %>
-        <%= f.submit "Upvote" %>
-        <% end %>
-
-        <p class="rating" id=<%= rating.id.to_s %>></p>
-
-        <%= form_for(@vote, remote: true) do |f| %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :rating_id, value: rating.id %>
-        <%= f.hidden_field :value, value: -1 %>
-        <%= f.submit "Downvote" %>
-        <% end %>
-
         <% if @current_user && @current_user.admin? %>
           <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
         <% end %>
