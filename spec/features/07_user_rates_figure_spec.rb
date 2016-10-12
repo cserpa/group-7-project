@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'spec_helper'
 require 'rails_helper'
 
@@ -8,9 +7,10 @@ require 'rails_helper'
 
 feature 'user adds rating for historical figure' do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:figure) { FactoryGirl.create(:figure) }
+  let!(:figure) { FactoryGirl.create(:figure, user: user) }
 
   scenario 'user adds rating successfully without review' do
+    visit root_path
     sign_in(user)
     visit figure_path(figure)
 

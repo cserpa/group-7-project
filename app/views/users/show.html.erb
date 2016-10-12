@@ -1,9 +1,19 @@
 <h1 align='center'><%=@user.name %> </h1>
 
 
+<<<<<<< HEAD
   <p align='center'>
     <%= image_tag(@user.avatar.large_avatar) %>
   </p>
+=======
+<h3>Your Figures:</h3>
+<%= render 'layouts/users/show_figure_list' %>
+
+<%= link_to 'Edit Profile Picture', edit_user_path(@user) %>
+<%= link_to 'Edit Account Info', edit_user_registration_path(@user) %>
+
+
+>>>>>>> c4805076279ad3d2cbb2c8d40818afcfc4c23c0c
 
   <p align='center'>
     <%= link_to 'Edit Profile Picture', edit_user_path(@user) %>
