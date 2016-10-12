@@ -28,6 +28,7 @@ class FiguresController < ApplicationController
   def create
     @figure = Figure.new(figure_params)
     @current_user = current_user
+    @figure.user = @current_user
 
     if @figure.save
       flash[:notice] = "Figure added successfully"
