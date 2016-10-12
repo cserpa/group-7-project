@@ -1,17 +1,18 @@
-
-<h2>Highest Rated:</h2>
-<% if @figures %>
-  <ul>
-  <% @figures.to_a.slice(0,3).each do |figure| %>
-    <li/><%= link_to figure.name, figure_path(figure) %>
-  <% end %>
-  </ul>
-<h2>Lowest Rated:</h2>
-  <ul>
-  <% @figures.to_a.slice(-3, 3).each do |figure| %>
-    <li/><%= link_to figure.name, figure_path(figure) %>
-  <% end %>
-  </ul>
+<% if @figures.length >= 3 %>
+  <h2>Highest Rated:</h2>
+  <% if @figures %>
+    <ul>
+    <% @figures.to_a.slice(0,3).each do |figure| %>
+      <li/><%= link_to figure.name, figure_path(figure) %>
+    <% end %>
+    </ul>
+  <h2>Lowest Rated:</h2>
+    <ul>
+    <% @figures.to_a.slice(-3, 3).each do |figure| %>
+      <li/><%= link_to figure.name, figure_path(figure) %>
+    <% end %>
+    </ul>
+<% end %>
 
 <h3>Figure List</h3>
   <ul>
