@@ -4,27 +4,33 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.3.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+* System dependencies:
+  - brew install imagemagick
+  <!-- This is for profile picture sizing -->
+  - brew install phantomjs
+  <!-- This is for JS testing in Capybara -->
+  - gem install bundler
+  - bundle
 
 * Configuration
+  - you will need S3 keys in .env file with secrets from Amazon S3 account to use profile picture features.
+  - review Fog and Carrierwave documentation if needed.
 
 * Database creation
+  - rake db:create && rake db:migrate to set up tables
 
 * Database initialization
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+  - run test suite with rake
 
 * Deployment instructions
 
 * ...
-# Group 7 Project
-Your app description, here.
+# Figurate
+This is an app for rating historical figures, intended for entertainment purposes.
+Users can create historical figures and then rate them, as well as rating the figures
+other people create. Each figure has an aggregate rating. The index page keeps track
+of the highest and lowest rated figures. You can also upvote or downvote someone's review.
