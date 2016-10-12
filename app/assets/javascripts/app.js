@@ -18,6 +18,6 @@ var updateVotes = function() {
     })
     .done(function(total) {
       rating.innerHTML = total;
-    })
-  })
-}
+    });
+  });
+};
