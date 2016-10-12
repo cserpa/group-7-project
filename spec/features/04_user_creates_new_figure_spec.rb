@@ -3,8 +3,11 @@ require 'rails_helper'
 
 feature 'As an authenticated user, I want to add a historical figure
   so that others can review it' do
+  let!(:user) { FactoryGirl.create(:user) }
 
   scenario 'user adds new historical figure successfully' do
+    visit root_path
+    sign_in user
     visit new_figure_path
     expect(page).to have_content 'Add a New Historical Figure'
 
@@ -22,6 +25,8 @@ feature 'As an authenticated user, I want to add a historical figure
   end
 
   scenario 'user does not provide proper information to add new figure' do
+    visit root_path
+    sign_in user
     visit new_figure_path
 
     click_button 'Add Historical Figure'
