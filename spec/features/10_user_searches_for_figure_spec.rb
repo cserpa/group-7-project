@@ -3,8 +3,8 @@ require 'rails_helper'
 
 feature 'user can search for figures in the search bar' do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:figure) { FactoryGirl.create(:figure, user_id: user.id) }
-  let!(:figure_2) { FactoryGirl.create(:figure, name: 'George Washington', user_id: user.id) }
+  let!(:figure) { FactoryGirl.create(:figure, user: user) }
+  let!(:figure_2) { FactoryGirl.create(:figure, name: 'George Washington', user: user) }
 
   scenario 'user successfully searches for figure' do
     visit root_path

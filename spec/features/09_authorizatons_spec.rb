@@ -3,8 +3,8 @@ require 'rails_helper'
 
 feature 'admin has full ability to see site' do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:figure) { FactoryGirl.create(:figure, user_id: user.id) }
-  let!(:rating) { FactoryGirl.create(:rating, figure_id: figure.id, user_id: user.id) }
+  let!(:figure) { FactoryGirl.create(:figure, user: user) }
+  let!(:rating) { FactoryGirl.create(:rating, figure: figure, user: user) }
   let!(:admin) do
     User.create!(
       first_name: 'Cameron',

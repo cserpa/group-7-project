@@ -26,7 +26,7 @@ feature 'visitor goes to category show page' do
       era: "1900's",
       nationality: 'Austrian',
       claim_to_fame: 'Killed six million people',
-      user_id: cameron.id
+      user: cameron
     )
   end
 
@@ -37,7 +37,7 @@ feature 'visitor goes to category show page' do
       era: "1800's",
       nationality: 'American',
       claim_to_fame: 'Ended slavery',
-      user_id: cameron.id
+      user: cameron
     )
   end
 
@@ -45,8 +45,8 @@ feature 'visitor goes to category show page' do
     Rating.create!(
       rating: 5,
       review: 'I love Lincoln!',
-      user_id: myles.id,
-      figure_id: lincoln.id
+      user: myles,
+      figure: lincoln
     )
   end
 
@@ -54,8 +54,8 @@ feature 'visitor goes to category show page' do
     Rating.create!(
       rating: 0,
       review: 'Hitler sucks',
-      user_id: myles.id,
-      figure_id: hitler.id
+      user: myles,
+      figure: hitler
     )
   end
 
@@ -67,15 +67,15 @@ feature 'visitor goes to category show page' do
 
   let!(:lincoln_politician) do
     Categorization.create!(
-      figure_id: lincoln.id,
-      category_id: politician.id
+      figure: lincoln,
+      category: politician
     )
   end
 
   let!(:hitler_politician) do
     Categorization.create!(
-      figure_id: hitler.id,
-      category_id: politician.id
+      figure: hitler,
+      category: politician
     )
   end
 

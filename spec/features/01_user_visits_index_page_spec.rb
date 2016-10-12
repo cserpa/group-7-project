@@ -9,7 +9,7 @@ feature 'visitors see the index page' do
       era: '1800s',
       nationality: 'American',
       claim_to_fame: 'Ended slavery',
-      user_id: user.id
+      user: user
     )
   end
 

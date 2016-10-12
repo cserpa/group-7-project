@@ -3,7 +3,7 @@ require 'rails_helper'
 
 feature 'user can upvote or downvote a review' do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:figure) { FactoryGirl.create(:figure, user_id: user.id) }
+  let!(:figure) { FactoryGirl.create(:figure, user: user) }
 
   scenario 'user upvotes a review' do
     sign_in(user)

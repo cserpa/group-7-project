@@ -26,7 +26,7 @@ feature 'visitors see profile and reviews on show page' do
       era: "1800's",
       nationality: 'American',
       claim_to_fame: 'Ended slavery',
-      user_id: cameron.id
+      user: cameron
     )
   end
 
@@ -35,14 +35,14 @@ feature 'visitors see profile and reviews on show page' do
       rating: 5,
       review: 'I love Lincoln, this dude was bomb.
                I am being him for Halloween.',
-      user_id: myles.id,
-      figure_id: lincoln.id
+      user: myles,
+      figure: lincoln
     )
     Rating.create!(
       rating: 0,
       review: 'Lincoln was a known racist',
-      user_id: myles.id,
-      figure_id: lincoln.id
+      user: myles,
+      figure: lincoln
     )
   end
 
