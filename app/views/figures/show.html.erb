@@ -5,12 +5,14 @@
 <p>Nationality: <%= @figure.nationality %></p>
 <p>Claim to fame: <%= @figure.claim_to_fame %></p>
 
-<p>Average Rating: <%= @average_rating %></p>
+<% if @average_rating.is_a?(Numeric)%>
 
-<h3>Submit a Rating</h3>
-
+  <p>Average Rating: <%= @average_rating %></p>
+<% end %>
 
 <% if @current_user %>
+  <h3>Submit a Rating</h3>
+
   <%= form_for(@rating) do |f| %>
 
     <div class="row">
@@ -20,15 +22,11 @@
 
     <div class="field">
       <%= f.label :review, 'Review' %>
-      <%= f.text_field :review %>
+      <%= f.text_area :review %>
     </div>
 
     <div class="field" hidden="true">
       <%= f.text_field :figure_id, value: @figure.id %>
-    </div>
-
-    <div class="field" hidden="true">
-      <%= f.text_field :user_id, value: @current_user.id %>
     </div>
 
     <div class="actions">
@@ -39,16 +37,17 @@
 
 <ul>
   <% @ratings.each do |rating| %>
-    <li>
-      <%= rating.review %>
-      <% if @current_user && @current_user.admin? %>
-        <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
-      <% end %>
-    </li>
+    <% unless rating.review.empty? %>
+      <li>
+        <%= rating.review %>
+        <% if @current_user && @current_user.admin? %>
+          <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
+        <% end %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 
-
-<% if @current_user && @current_user.admin? %>
-  <%= button_to 'Delete Figure', @figure, { method: :delete, data: { confirm: 'Are you sure?' }} %>
+  <% if @current_user && @current_user.admin? %>
+    <%= button_to 'Delete Figure', @figure, { method: :delete, data: { confirm: 'Are you sure?' }} %>
   <% end %>
