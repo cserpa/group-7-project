@@ -5,5 +5,4 @@ class Vote < ActiveRecord::Base
   validates :user_id, presence: true
   validates :rating_id, presence: true
   validates :value, presence: true, numericality: { only_integer: true, inclusion: -1..1 }
-
 end
