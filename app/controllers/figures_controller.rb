@@ -53,10 +53,15 @@ class FiguresController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @figure = Figure.find(params[:id])
     @figure.destroy
     flash[:notice] = 'History no longer recognizes this figure.'
-    redirect_to root_path
+    if @user.role == 'member'
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
+    end
   end
 
   private
