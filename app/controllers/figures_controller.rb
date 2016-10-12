@@ -1,7 +1,9 @@
 class FiguresController < ApplicationController
-
   def index
-    @figures = Figure.all.order(updated_at: :desc)
+    @figures = display_figures
+    if params[:search]
+      @figures = Figure.search(params[:search])
+    end
     @figures_with_average_rating = {}
     @figures.each do |figure|
       @figures_with_average_rating[figure.id] = figure.average_rating
@@ -43,6 +45,14 @@ class FiguresController < ApplicationController
   end
 
   private
+
+  def display_figures
+    if params[:search]
+      Figure.search(params[:search])
+    else
+      Figure.all
+    end
+  end
 
   def figure_params
     params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame, :user_id)

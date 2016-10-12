@@ -16,4 +16,8 @@ class Figure < ActiveRecord::Base
     average_rating = sum.to_f / self.ratings.length
     average_rating.round(2)
   end
+
+  def self.search(search)
+    where('name ILIKE ?', "%#{search}%")
+  end
 end
