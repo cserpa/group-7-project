@@ -46,17 +46,6 @@ feature 'user can upvote or downvote a review' do
     visit root_path
   end
 
-  scenario 'user upvotes a review and tries to downvote it again', js: true do
-    sign_in(user)
-    visit figure_path(figure)
-
-    click_on 'Upvote'
-    click_on 'Downvote'
-
-    expect(page).to have_content '-1'
-    visit root_path
-  end
-
   scenario 'user downvotes a review and tries to downvote it again', js: true do
     sign_in(user)
     visit figure_path(figure)
