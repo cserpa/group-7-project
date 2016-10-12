@@ -1,4 +1,4 @@
-<h1 align="center">HistoRank<h1>
+<h1 align="center">FiguRate<h1>
     <%= stylesheet_link_tag    'application', media: 'all' %>
 <% if @figures %>
   <ul>
@@ -12,6 +12,7 @@
 
 <% if @figures.blank? %>
   <h4>There are no figures that match <%= params[:search] %></h4>
+  <a href="http://localhost:3000/figures/new">Create a new page for this figure!</a>
 <% end %>
 
 <p>Highest Rated - <%= @figures[0] %></p>
