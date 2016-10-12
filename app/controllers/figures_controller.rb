@@ -21,7 +21,6 @@ class FiguresController < ApplicationController
   end
 
   def new
-    @current_user = current_user
     @figure = Figure.new
     @current_user = current_user
   end

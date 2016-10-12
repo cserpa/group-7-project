@@ -16,6 +16,7 @@ gem 'mini_magick'
 
 group :development, :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'

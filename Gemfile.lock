@@ -55,6 +55,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    cliver (0.3.2)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     coveralls (0.8.15)
@@ -250,6 +251,10 @@ GEM
       ast (~> 2.2)
     pg (0.19.0)
     pkg-config (1.1.7)
+    poltergeist (1.11.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -390,6 +395,7 @@ DEPENDENCIES
   listen
   mini_magick
   pg (~> 0.15)
+  poltergeist
   pry-rails
   rails (= 5)
   rails_12factor

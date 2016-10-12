@@ -10,6 +10,7 @@ feature 'user adds rating for historical figure' do
   let!(:figure) { FactoryGirl.create(:figure, user_id: user.id) }
 
   scenario 'user adds rating successfully without review' do
+    visit root_path
     sign_in(user)
     visit figure_path(figure)
 
