@@ -1,6 +1,19 @@
-<h1>Historical Figure Index<h1>
 
+<h2>Highest Rated:</h2>
 <% if @figures %>
+  <ul>
+  <% @figures.to_a.slice(0,3).each do |figure| %>
+    <li/><%= figure.name  %>
+  <% end %>
+  </ul>
+<h2>Lowest Rated:</h2>
+  <ul>
+  <% @figures.to_a.slice(@figures.length - 3, @figures.length).each do |figure| %>
+    <li/><%= figure.name  %>
+  <% end %>
+  </ul>
+
+<h3>Figure List</h3>
   <ul>
   <% @figures.each do |figure| %>
     <li>
@@ -9,6 +22,3 @@
   <% end %>
   </ul>
 <% end %>
-
-<p>Highest Rated - <%= @figures[0] %></p>
-<p>Lowest Rated - <%= @figures[-1] %></p>
