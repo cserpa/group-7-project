@@ -1,14 +1,17 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 
+<nav class="fixed-nav-bar">
+  <!-- Fixed navigation bar content -->
+</nav>
 
 <h1 align="center"> <%= @figure.name %><h1>
+
 <p align='center'>Occupation: <%= @figure.occupation %></p>
 <p align='center'>Era: <%= @figure.era %></p>
 <p align='center'>Nationality: <%= @figure.nationality %></p>
 <p align='center'>Claim to fame: <%= @figure.claim_to_fame %></p>
 
 <p align='center'>Average Rating: <%= @average_rating %></p>
-
 <h3 align='center'>Submit a Rating</h3>
 
 

@@ -1,7 +1,14 @@
-<h1><%=@user.name %> </h1>
+<h1 align='center'><%=@user.name %> </h1>
 
-<%= image_tag(@user.avatar.large_avatar) %>
 
-<%= link_to 'Edit Profile Picture', edit_user_path(@user) %>
+  <p align='center'>
+    <%= image_tag(@user.avatar.large_avatar) %>
+  </p>
 
-<%= button_to 'Delete Account', @user, { method: :delete, data: { confirm: 'Are you sure?' }} %>
+  <p align='center'>
+    <%= link_to 'Edit Profile Picture', edit_user_path(@user) %>
+  </p>
+
+  <p align='center'>
+    <%= button_to 'Delete Account', @user, { method: :delete, data: { confirm: 'Are you sure?' }} %>
+  </p>
