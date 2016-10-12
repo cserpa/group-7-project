@@ -23,6 +23,21 @@ class FiguresController < ApplicationController
     @figure = Figure.new
   end
 
+  def edit
+    @figure = Figure.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    figure = Figure.find(params[:id])
+    figure.update_attributes(figure_params)
+    if @user.role == 'member'
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
+    end
+  end
+
   def create
     @figure = Figure.new(figure_params)
 

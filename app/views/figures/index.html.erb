@@ -3,13 +3,13 @@
 <% if @figures %>
   <ul>
   <% @figures.to_a.slice(0,3).each do |figure| %>
-    <li/><%= figure.name  %>
+    <li/><%= link_to figure.name, figure_path(figure) %>
   <% end %>
   </ul>
 <h2>Lowest Rated:</h2>
   <ul>
   <% @figures.to_a.slice(-3, 3).each do |figure| %>
-    <li/><%= figure.name  %>
+    <li/><%= link_to figure.name, figure_path(figure) %>
   <% end %>
   </ul>
 
@@ -20,6 +20,7 @@
       <%= link_to figure.name, figure_path(figure) %> - Average Rating: <%= @figures_with_average_rating[figure.id] %>
       <% if @user && @user.admin?%>
           <%= button_to 'Delete Figure', "/figures/#{figure.id}", { method: :delete, data: { confirm: 'Are you sure?' }} %>
+          <%= button_to 'Edit Figure', edit_figure_path(figure) %>
       <% end %>
     </li>
   <% end %>
