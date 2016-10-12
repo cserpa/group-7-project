@@ -14,12 +14,12 @@ feature 'visitors see the index page' do
 
   scenario 'visitor visits the index page' do
     visit figures_path
-    expect(page).to have_content 'Historical Figure Index'
     expect(page).to have_content 'Abraham Lincoln'
   end
 
   scenario 'clicking figure will take the user to the Figure\'s show page' do
     visit figures_path
+    save_and_open_page
     click_link 'Abraham Lincoln'
     expect(current_path).to eq figure_path(lincoln)
   end

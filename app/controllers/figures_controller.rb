@@ -3,9 +3,6 @@ class FiguresController < ApplicationController
   def index
     @user = current_user
     @figures = display_figures
-    if params[:search]
-      @figures = Figure.search(params[:search])
-    end
     @figures_with_average_rating = {}
     @figures.each do |figure|
       @figures_with_average_rating[figure.id] = figure.average_rating
