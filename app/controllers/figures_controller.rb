@@ -2,6 +2,7 @@
 class FiguresController < ApplicationController
 
   def index
+    @user = current_user
     @figures = Figure.all.order(updated_at: :desc)
     @figures_with_average_rating = {}
     @figures.each do |figure|
