@@ -14,7 +14,11 @@
     </ul>
 <% end %>
 
-<h3>Figure List</h3>
+<% if @figures.blank? %>
+  <h4>There are no figures that match <%= params[:search] %></h4>
+<% end %>
+
+<h3>Historical Figures</h3>
   <ul>
   <% @figures.each do |figure| %>
     <li>
