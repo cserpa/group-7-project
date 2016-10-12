@@ -3,6 +3,7 @@ class Figure < ActiveRecord::Base
   has_many :ratings
   has_many :categorizations
   has_many :categories, through: :categorizations
+  belongs_to :user
 
   validates :name, presence: true
   validates :occupation, presence: true

@@ -22,10 +22,12 @@ class FiguresController < ApplicationController
 
   def new
     @figure = Figure.new
+    @current_user = current_user
   end
 
   def create
     @figure = Figure.new(figure_params)
+    @current_user = current_user
 
     if @figure.save
       flash[:notice] = "Figure added successfully"
@@ -54,6 +56,6 @@ class FiguresController < ApplicationController
   end
 
   def figure_params
-    params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame)
+    params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame, :user_id)
   end
 end
