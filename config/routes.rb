@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "figures#index"
 
   resources :figures, only: [:new, :create, :index, :show, :destroy]
-  resources :categories, only: [:index, :show]
   resources :votes, only: [:create, :show]
   resources :ratings, only: [:create, :destroy]
 
