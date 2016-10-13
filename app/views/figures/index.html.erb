@@ -1,8 +1,11 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 <link href="https://fonts.googleapis.com/css?family=Rye" rel="stylesheet">
 
+<<<<<<< HEAD
 <h1 align='center'><a href="http://localhost:3000/"><font color="black">FiguRate</a></h1>
 
+=======
+>>>>>>> 5dd47aefcf98cb927fa24f99a65cb75b39aeabaf
 <h2 align="center">Historical Figure Index</h2>
 <% if @figures.length >= 3 %>
   <h2>Highest Rated:</h2>
@@ -26,14 +29,11 @@
 <% end %>
 
 <h3>Historical Figures</h3>
+
+<div id="app">
   <ul>
-  <% @figures.each do |figure| %>
-    <li>
-      <%= link_to figure.name, figure_path(figure) %> <br/>
-      <% if @user && @user.admin?%>
-          <%= button_to 'Delete Figure', "/figures/#{figure.id}", { method: :delete, data: { confirm: 'Are you sure?' }} %>
-          <%= button_to 'Edit Figure', edit_figure_path(figure) %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+    <% @figures.each do |figure| %>
+      <li><%= link_to figure.name, figure_path(figure) %></li>
+    <% end %>
+  </ul>
+</div>

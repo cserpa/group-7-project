@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Group7Project</title>
-
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/png"/>
     <%= csrf_meta_tags %>
     <script src="https://use.fontawesome.com/d1a2607920.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -17,6 +17,7 @@
     <% end %>
 
     <nav>
+      <h1 align='center'><a href="/figures">FiguRate</a></h1>
       <div class="search">
         <%= form_tag(figures_path, method: 'get', id: 'search-form') do %>
           <%= text_field_tag :search, params[:search] %>
