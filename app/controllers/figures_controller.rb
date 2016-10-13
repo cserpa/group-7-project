@@ -1,7 +1,7 @@
 class FiguresController < ApplicationController
   def index
     @user = current_user
-    @figures = display_figures
+    @figures = Figure.all.to_a
     @ranked_figures = @figures.to_a.sort do |a, b|
       b.average_rating <=> a.average_rating
     end
@@ -20,6 +20,11 @@ class FiguresController < ApplicationController
     @current_user = current_user
     @average_rating = @figure.average_rating
     @vote = Vote.new
+  end
+
+  def search
+    @search_term = params[:search]
+    @figures = display_figures
   end
 
   def new

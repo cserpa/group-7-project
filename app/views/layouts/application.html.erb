@@ -18,7 +18,7 @@
 
     <nav>
       <div class="search">
-        <%= form_tag(figures_path, method: 'get', id: 'search-form') do %>
+        <%= form_tag(search_path, method: 'get', id: 'search-form') do %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", name: nil %>
         <% end %>
