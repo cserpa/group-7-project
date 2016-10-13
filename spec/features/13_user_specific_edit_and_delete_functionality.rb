@@ -23,14 +23,19 @@ feature 'visitors see the index page' do
     )
   end
 
-  scenario 'visitor visits the index page' do
-    visit figures_path
+  scenario 'admin has edit and delete priviliges on index page' do
+    sign_in admin
+    visit root_path
     expect(page).to have_content 'Abraham Lincoln'
+    page.should have_selector(:link_or_button, 'Delete Figure')
+    page.should have_selector(:link_or_button, 'Edit Figure')
   end
 
-  scenario 'clicking figure will take the user to the Figure\'s show page' do
-    visit figures_path
-    click_link 'Abraham Lincoln'
-    expect(current_path).to eq figure_path(lincoln)
+  scenario 'users can edit and delete figures they have created' do
+    sign_in user
+    visit user_path user
+    expect(page).to have_content 'Abraham Lincoln'
+    page.should have_selector(:link_or_button, 'Delete Figure')
+    page.should have_selector(:link_or_button, 'Edit Figure')
   end
 end
