@@ -1,19 +1,19 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 
+<div class='figureInfo'>
+  <h2 align="center"> <%= @figure.name %><h2>
 
-<h2 align="center"> <%= @figure.name %><h2>
-
-<p align='center'>Occupation: <%= @figure.occupation %></p>
-<p align='center'>Era: <%= @figure.era %></p>
-<p align='center'>Nationality: <%= @figure.nationality %></p>
-<p align='center'>Claim to fame: <%= @figure.claim_to_fame %></p>
-
+  <p align='center'>Occupation: <%= @figure.occupation %></p>
+  <p align='center'>Era: <%= @figure.era %></p>
+  <p align='center'>Nationality: <%= @figure.nationality %></p>
+  <p align='center'>Claim to fame: <%= @figure.claim_to_fame %></p>
 <% if @average_rating.is_a?(Numeric)%>
   <p align='center'>Average Rating: <%= @average_rating %></p>
 <% end %>
-
+</div>
 <% if @current_user %>
-  <h3>Submit a Rating</h3>
+
+  <h3 class='subheaders'>Submit a Rating</h3>
 
   <%= form_for(@rating) do |f| %>
 
@@ -36,18 +36,20 @@
     </div>
 
     <div class align='center'='actions'>
-      <%= f.submit 'Submit Rating'%>
+      <%= f.submit 'Submit Rating', class: 'ratingButton'%>
     </div>
   <% end %>
 <% end %>
 
-<h3>Reviews<h3>
+
+<h3 class='subheaders'>Reviews<h3>
 <ul>
   <% @ratings.each do |rating| %>
     <% unless rating.review.empty? %>
       <li align ='center'>
-        <%= rating.review %>
+        <span class='reviewDisplay'><%= rating.review %></span>
 
+      <div class='voteButtons'>
         <% if @current_user %>
           <%= form_for(@vote, remote: true) do |f| %>
             <%= f.hidden_field :user_id, value: @current_user.id %>
@@ -65,9 +67,10 @@
             <%= f.submit "Downvote", class: "voteButton" %>
           <% end %>
         <% end %>
+      </div>
 
         <% if @current_user && @current_user.admin? %>
-          <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
+          <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }, class:'deleteReview'} %>
         <% end %>
 
       </li>
@@ -76,8 +79,10 @@
 </ul>
 
   <% if @current_user && @current_user.admin? || @current_user && @current_user.id == @figure.user_id %>
-    <%= button_to 'Delete Figure', @figure, { method: :delete, data: { confirm: 'Are you sure?' }} %>
-    <%= button_to 'Edit Figure', edit_figure_path(@figure), method: :get %>
+    <div id="showPageButtons">
+      <%= button_to 'Delete Figure', @figure, { method: :delete, data: { confirm: 'Are you sure?' }, class:'figureButtons'} %>
+      <%= button_to 'Edit Figure', edit_figure_path(@figure), method: :get, class:'figureButtons' %>
+    </div>
   <% end %>
 
 <ul>

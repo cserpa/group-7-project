@@ -52,10 +52,9 @@ a {
 
 #flash {
   text-align: center;
-  margin-bottom: 40px;
   font-size: 30px;
   background-color: red;
-  margin: 0px 80px;
+  margin: 0px 80px 40px 80px;
   color: white;
   border-radius: 10px;
 }
@@ -88,4 +87,50 @@ a {
   height: 40px;
   top: 60px;
   right: 20px;
+}
+
+textarea {
+  width: 600px;
+  height: 100px
+}
+
+.figureInfo {
+  border-style: solid;
+  border-width: small;
+  width: 40%;
+  margin: auto;
+}
+
+.subheaders {
+  text-align: center;
+}
+
+.figureButtons {
+  display: inline-block;
+  font-size: 18px;
+}
+
+#showPageButtons {
+  right: 20px;
+  display: inline-block;
+}
+
+.reviewDisplay {
+  background-color: white;
+  border-style: solid;
+  padding: 10px;
+  margin: 20px;
+}
+
+.voteButtons {
+  margin: 20px;
+  font-size: 18px;
+}
+
+.deleteReview {
+  margin: 20px;
+}
+
+.ratingButton {
+  font-size: 18px;
 }
