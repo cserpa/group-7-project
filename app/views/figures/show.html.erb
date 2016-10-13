@@ -8,11 +8,8 @@
 <p align='center'>Nationality: <%= @figure.nationality %></p>
 <p align='center'>Claim to fame: <%= @figure.claim_to_fame %></p>
 
-<p align='center'>Average Rating: <%= @average_rating %></p>
-<h3 align='center'>Submit a Rating</h3>
-
 <% if @average_rating.is_a?(Numeric)%>
-  <p>Average Rating: <%= @average_rating %></p>
+  <p align='center'>Average Rating: <%= @average_rating %></p>
 <% end %>
 
 <% if @current_user %>
