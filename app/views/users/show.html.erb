@@ -1,13 +1,21 @@
-<h1><%=@user.name %> </h1>
+<%= stylesheet_link_tag    'application', media: 'all' %>
 
-<%= image_tag(@user.avatar.large_avatar) %>
+
+<h1 align='center'><%=@user.name %> </h1>
+
+  <p align='center'>
+    <%= image_tag(@user.avatar.large_avatar) %>
+  </p>
 
 <h3>Your Figures:</h3>
 <%= render 'layouts/users/show_figure_list' %>
 
+<p align='center'>
 <%= link_to 'Edit Profile Picture', edit_user_path(@user) %>
 <%= link_to 'Edit Account Info', edit_user_registration_path(@user) %>
+</p>
 
 
-
-<%= button_to 'Delete Account', @user, { method: :delete, data: { confirm: 'Are you sure?' }} %>
+  <p align='center'>
+    <%= button_to 'Delete Account', @user, { method: :delete, data: { confirm: 'Are you sure?' }} %>
+  </p>

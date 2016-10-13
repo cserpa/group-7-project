@@ -1,12 +1,21 @@
-<h1> <%= @figure.name %><h1>
+<%= stylesheet_link_tag    'application', media: 'all' %>
 
-<p>Occupation: <%= @figure.occupation %></p>
-<p>Era: <%= @figure.era %></p>
-<p>Nationality: <%= @figure.nationality %></p>
-<p>Claim to fame: <%= @figure.claim_to_fame %></p>
+<!-- <nav class="fixed-nav-bar"> -->
+  <!-- Fixed navigation bar content -->
+<!-- </nav> -->
+<h1 align='center'><a href="http://localhost:3000/">FiguRate</a></h1>
+
+<h2 align="center"> <%= @figure.name %><h2>
+
+<p align='center'>Occupation: <%= @figure.occupation %></p>
+<p align='center'>Era: <%= @figure.era %></p>
+<p align='center'>Nationality: <%= @figure.nationality %></p>
+<p align='center'>Claim to fame: <%= @figure.claim_to_fame %></p>
+
+<p align='center'>Average Rating: <%= @average_rating %></p>
+<h3 align='center'>Submit a Rating</h3>
 
 <% if @average_rating.is_a?(Numeric)%>
-
   <p>Average Rating: <%= @average_rating %></p>
 <% end %>
 
@@ -15,30 +24,36 @@
 
   <%= form_for(@rating) do |f| %>
 
-    <div class="row">
+    <div class align='center'='row'>
       <%= f.label :rating %>
       <%= f.collection_radio_buttons(:rating, @ratings_collection, :first, :last) %>
     </div>
 
-    <div class="field">
+    <div class align='center'='field'>
       <%= f.label :review, 'Review' %>
       <%= f.text_area :review %>
     </div>
 
-    <div class="field" hidden="true">
+    <div class align='center'='field' hidden='true'>
       <%= f.text_field :figure_id, value: @figure.id %>
     </div>
 
+    <div class align ='center'='field' hidden='true'>
+      <%= f.text_field :user_id, value: @current_user.id %>
+    </div>
+
+    <div class align='center'='actions'>
     <div class="actions">
       <%= f.submit 'Submit Rating'%>
     </div>
   <% end %>
 <% end %>
 
+<h3>Reviews<h3>
 <ul>
   <% @ratings.each do |rating| %>
     <% unless rating.review.empty? %>
-      <li>
+      <li align ='center'>
         <%= rating.review %>
 
         <% if @current_user %>
@@ -70,3 +85,9 @@
   <% if @current_user && @current_user.admin? %>
     <%= button_to 'Delete Figure', @figure, { method: :delete, data: { confirm: 'Are you sure?' }} %>
   <% end %>
+
+<ul>
+  <li align='center'>
+    <a href="http://localhost:3000/">Back to Homepage</a>
+  </li>
+</ul>

@@ -15,6 +15,7 @@
     <% flash.each do |key, value| %>
       <h3><%=value%></h3>
     <% end %>
+
     <nav>
       <div class="search">
         <%= form_tag(figures_path, method: 'get', id: 'search-form') do %>
