@@ -14,10 +14,6 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <h3><%=value%></h3>
-    <% end %>
-
     <nav>
 
       <ul>
@@ -40,6 +36,9 @@
         <%= submit_tag "Search", name: nil, id: 'searchButton' %>
       <% end %>
     </nav>
+    <% flash.each do |key, value| %>
+      <p id="flash"><%=value%></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
