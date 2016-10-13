@@ -16,7 +16,6 @@ feature 'authenticated user adds image to profile' do
     attach_file('user_avatar', Rails.root +
                 'spec/fixtures/launchhalloween16_720.jpg')
     click_button 'Update User'
-    save_and_open_page
 
     expect(page).to have_xpath(
       "//img[contains(@src,'launchhalloween16_720.jpg')]"

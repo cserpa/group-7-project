@@ -49,18 +49,11 @@
   <% end %>
 <% end %>
 
+<h3>Reviews<h3>
 <ul>
   <% @ratings.each do |rating| %>
-    <li align ='center'>
-      <%='Reviews'%> <br/>
-      <%= rating.review %>
-      <% if @current_user && @current_user.admin? %>
-        <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
-      <% end %>
-    </li>
-
     <% unless rating.review.empty? %>
-      <li>
+      <li align ='center'>
         <%= rating.review %>
 
         <%= form_for(@vote, remote: true) do |f| %>
