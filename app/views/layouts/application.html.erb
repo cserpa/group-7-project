@@ -17,6 +17,7 @@
     <% end %>
 
     <nav>
+      <h1 align='center'><a href="/figures">FiguRate</a></h1>
       <div class="search">
         <%= form_tag(figures_path, method: 'get', id: 'search-form') do %>
           <%= text_field_tag :search, params[:search] %>
