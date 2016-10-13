@@ -84,6 +84,13 @@ class FiguresController < ApplicationController
   end
 
   def figure_params
-    params.require(:figure).permit(:name, :occupation, :era, :nationality, :claim_to_fame, :user_id)
+    params.require(:figure).permit(:name,
+     :occupation,
+     :era,
+     :nationality,
+     :claim_to_fame,
+     :user_id,
+     :avatar,
+     :avatar_cache)
   end
 end

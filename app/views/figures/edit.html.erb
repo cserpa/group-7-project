@@ -32,3 +32,9 @@
   </div>
 
 <% end %>
+
+<%= form_for @figure, :html => {:multipart => true} do |f| %>
+    Upload Image for <%=@figure.name %>
+    <%= f.file_field :avatar %>
+    <%= f.submit %>
+<% end %>
