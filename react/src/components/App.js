@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getFigures();
     setInterval(this.getFigures, 5000)
   }
 
