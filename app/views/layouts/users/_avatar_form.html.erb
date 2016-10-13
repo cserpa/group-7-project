@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag    'application', media: 'all' %>
+
 <%= form_for @user, :html => {:multipart => true} do |f| %>
     My Avatar
     <%= f.file_field :avatar %>
