@@ -1,12 +1,9 @@
 class FiguresController < ApplicationController
   def index
+    @user = current_user
     @figures = display_figures
-    if params[:search]
-      @figures = Figure.search(params[:search])
-    end
-    @figures_with_average_rating = {}
-    @figures.each do |figure|
-      @figures_with_average_rating[figure.id] = figure.average_rating
+    @ranked_figures = @figures.to_a.sort do |a, b|
+      b.average_rating <=> a.average_rating
     end
   end
 
@@ -25,6 +22,21 @@ class FiguresController < ApplicationController
     @current_user = current_user
   end
 
+  def edit
+    @figure = Figure.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    figure = Figure.find(params[:id])
+    figure.update_attributes(figure_params)
+    if @user.role == 'member'
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
+    end
+  end
+
   def create
     @figure = Figure.new(figure_params)
     @current_user = current_user
@@ -40,10 +52,15 @@ class FiguresController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @figure = Figure.find(params[:id])
     @figure.destroy
     flash[:notice] = 'History no longer recognizes this figure.'
-    redirect_to root_path
+    if @user.role == 'member'
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -52,7 +69,7 @@ class FiguresController < ApplicationController
     if params[:search]
       Figure.search(params[:search])
     else
-      Figure.all
+      Figure.all.to_a
     end
   end
 
