@@ -1,4 +1,5 @@
 class Figure < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   has_many :ratings
   belongs_to :user
 

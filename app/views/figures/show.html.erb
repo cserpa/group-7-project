@@ -3,14 +3,23 @@
 <div class='figureInfo'>
   <h2 align="center"> <%= @figure.name %><h2>
 
+  <% if @figure.avatar %>
+      <%= image_tag(@figure.avatar.large_avatar) %>
+  <% end %>
+
   <p align='center'>Occupation: <%= @figure.occupation %></p>
   <p align='center'>Era: <%= @figure.era %></p>
   <p align='center'>Nationality: <%= @figure.nationality %></p>
   <p align='center'>Claim to fame: <%= @figure.claim_to_fame %></p>
-<% if @average_rating.is_a?(Numeric)%>
+
   <p align='center'>Average Rating: <%= @average_rating %></p>
-<% end %>
+  <h3 align='center'>Submit a Rating</h3>
+
+  <% if @average_rating.is_a?(Numeric)%>
+    <p align='center'>Average Rating: <%= @average_rating %></p>
+  <% end %>
 </div>
+
 <% if @current_user %>
 
   <h3 class='subheaders'>Submit a Rating</h3>
