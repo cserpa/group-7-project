@@ -9,7 +9,7 @@ class Figure < ActiveRecord::Base
   validates :claim_to_fame, presence: true
 
   def average_rating
-    if self.ratings.empty? then return "None Available" end
+    if self.ratings.empty? then return 0 end
     sum = self.ratings.reduce(0){|memo, rating| memo += rating.rating}
     average_rating = sum.to_f / self.ratings.length
     average_rating.round(2)
