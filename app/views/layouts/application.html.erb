@@ -15,6 +15,9 @@
 
   <body>
     <nav>
+
+      <ul>
+
       <h1 class="headline" id="logo"><a href="/figures">FiguR8te</a></h1>
       <ul class="navBar">
         <%- if user_signed_in? -%>
@@ -28,7 +31,7 @@
         <li class="navItem"><%= link_to 'Figures', figures_path %></li>
         <%- end -%>
       </ul>
-      <%= form_tag(figures_path, method: 'get', id: 'search-form') do %>
+      <%= form_tag(search_path, method: 'get', id: 'search-form') do %>
         <%= text_field_tag :search, params[:search], id: 'searchField' %>
         <%= submit_tag "Search", name: nil, id: 'searchButton' %>
       <% end %>

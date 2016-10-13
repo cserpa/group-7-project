@@ -28,6 +28,6 @@ feature 'user can search for figures in the search bar' do
     fill_in "search", with: 'Ghandi'
     click_button "Search"
 
-    expect(page).to have_content 'There are no figures that match Ghandi'
+    expect(page).to have_content 'There are no figures that match: Ghandi'
   end
 end

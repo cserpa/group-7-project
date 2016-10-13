@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag    'application', media: 'all' %>
+
+<% if @figures.empty? %>
+  <h3>There are no figures that match: <%= @search_term %> </h3>
+<% else  %>
+  <h2>Search Results:</h2>
+  <ul>
+    <% @figures.each do |figure| %>
+      <li><%= link_to figure.name, figure_path(figure) %></li>
+    <% end %>
+  </ul>
+<% end %>
