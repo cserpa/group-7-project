@@ -5,6 +5,8 @@
   <% @user.figures.each do |figure| %>
     <li>
       <%= link_to figure.name, figure_path(figure) %>
+      <%= button_to 'Delete Figure', "/figures/#{figure.id}", { method: :delete, data: { confirm: 'Are you sure?' }} %>
+      <%= button_to 'Edit Figure', edit_figure_path(figure) %>
     </li>
   <% end %>
   </ul>
