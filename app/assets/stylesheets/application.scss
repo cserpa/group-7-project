@@ -1,23 +1,19 @@
 body {
   background-image: url("http://www.myfreetextures.com/wp-content/uploads/2011/06/another-rough-old-and-worn-parchment-paper.jpg");
-  background-size: cover
+  background-size: cover;
 }
 
-nav {
-    // position: absolute;
-    right: 0;
-    top: 0;
-    width: 20%;
+#logo {
+  font-family: 'Rye', cursive;
+  font-size: 120px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 100px;
 }
 
 h1 {
   font-family: 'Rye', cursive;
-  font-size: 150px;
-  position: absolute;
-  top: 50px;
-  left: 400px;
-  right: 400px;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -31,7 +27,7 @@ h3 {
 }
 
 p {
-  font-family: 'Rye', cursive;
+  font-family: 'EB Garamond', serif;
   font-size: 40px;
 }
 
@@ -41,11 +37,45 @@ div {
 }
 
 li {
-  font-family: 'Rye', cursive;
+  font-family: 'EB Garamond', serif;
   font-size: 24px;
 }
 
 img {
    padding:1px;
    border:1px solid #021a40;
+}
+
+a {
+  color: black;
+}
+
+.navItem {
+  display: inline-block;
+  font-family: 'Rye', cursive;
+  font-size: 20px;
+  padding-bottom: 100px;
+  margin-right: 10px;
+}
+
+.navBar {
+  position: absolute;
+  padding-bottom: 100px;
+  padding-left: 250px;
+  top: 150px;
+}
+
+#searchField {
+  width: 200px;
+  position: absolute;
+  height: 40px;
+  top: 60px;
+  right: 100px;
+}
+
+#searchButton {
+  position: absolute;
+  height: 40px;
+  top: 60px;
+  right: 20px;
 }
