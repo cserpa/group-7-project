@@ -5,6 +5,11 @@ class FiguresController < ApplicationController
     @ranked_figures = @figures.to_a.sort do |a, b|
       b.average_rating <=> a.average_rating
     end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @figures }
+    end
   end
 
   def show
