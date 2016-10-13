@@ -43,7 +43,6 @@
     </div>
 
     <div class align='center'='actions'>
-    <div class="actions">
       <%= f.submit 'Submit Rating'%>
     </div>
   <% end %>
@@ -64,7 +63,7 @@
             <%= f.submit "Upvote", class: "voteButton" %>
           <% end %>
 
-          <p class="rating" id=<%= rating.id.to_s %>></p>
+            <p class="rating" id=<%= rating.id.to_s %>></p>
 
           <%= form_for(@vote, remote: true) do |f| %>
             <%= f.hidden_field :user_id, value: @current_user.id %>
@@ -77,6 +76,7 @@
         <% if @current_user && @current_user.admin? %>
           <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }} %>
         <% end %>
+
       </li>
     <% end %>
   <% end %>
