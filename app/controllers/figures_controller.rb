@@ -91,6 +91,7 @@ class FiguresController < ApplicationController
      :claim_to_fame,
      :user_id,
      :avatar,
-     :avatar_cache)
+     :avatar_cache
+    )
   end
 end
