@@ -9,6 +9,8 @@
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.2/foundation.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rye" rel="stylesheet">
   </head>
 
   <body>
@@ -17,24 +19,26 @@
     <% end %>
 
     <nav>
-      <div class="search">
-        <%= form_tag(search_path, method: 'get', id: 'search-form') do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", name: nil %>
-        <% end %>
-      </div>
+
       <ul>
+
+      <h1 class="headline" id="logo"><a href="/figures">FiguR8te</a></h1>
+      <ul class="navBar">
         <%- if user_signed_in? -%>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to 'Profile', user_path(current_user) %></li>
-        <li><%= link_to 'Figures', figures_path %></li>
-        <li><%= link_to 'Add a Figure', new_figure_path %></li>
+        <li class="navItem"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li class="navItem"><%= link_to 'Profile', user_path(current_user) %></li>
+        <li class="navItem"><%= link_to 'Figures', figures_path %></li>
+        <li class="navItem"><%= link_to 'Add a Figure', new_figure_path %></li>
         <%- else -%>
-        <li> <%= link_to 'Sign Up', new_user_registration_path  %></li>
-        <li> <%= link_to 'Sign In', new_user_session_path  %></li>
-        <li><%= link_to 'Figures', figures_path %></li>
+        <li class="navItem"> <%= link_to 'Sign Up', new_user_registration_path  %></li>
+        <li class="navItem"> <%= link_to 'Sign In', new_user_session_path  %></li>
+        <li class="navItem"><%= link_to 'Figures', figures_path %></li>
         <%- end -%>
       </ul>
+      <%= form_tag(search_path, method: 'get', id: 'search-form') do %>
+        <%= text_field_tag :search, params[:search], id: 'searchField' %>
+        <%= submit_tag "Search", name: nil, id: 'searchButton' %>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
