@@ -2,7 +2,7 @@ class FiguresController < ApplicationController
   def index
     @user = current_user
     @figures = display_figures
-    @ranked_figures = @figures.to_a.sort do |a,b|
+    @ranked_figures = @figures.to_a.sort do |a, b|
       b.average_rating <=> a.average_rating
     end
   end
