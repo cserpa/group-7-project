@@ -84,7 +84,7 @@
 
   <% if @current_user && @current_user.admin? || @current_user && @current_user.id == @figure.user_id %>
     <%= button_to 'Delete Figure', @figure, { method: :delete, data: { confirm: 'Are you sure?' }} %>
-    <%= button_to 'Edit Figure', edit_figure_path(@figure) %>
+    <%= button_to 'Edit Figure', edit_figure_path(@figure), method: :get %>
   <% end %>
 
 <ul>
