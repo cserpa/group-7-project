@@ -6,8 +6,10 @@ const Figure = props => {
   let url = "/figures/" + props.id
 
   return (
-    <li <a href=url>
-      {figure}
+    <li>
+      <a href={url}>
+        {figure}
+      </a>
     </li>
   );
 };

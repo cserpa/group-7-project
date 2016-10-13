@@ -5,25 +5,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      figures = []
+      figures: []
     }
 
-    this.onChange = this.onChange.bind(this)
-  }
-
-  componentDidMount() {
-    setInterval(getFigures, 30000)
+    this.getFigures = this.getFigures.bind(this)
   }
 
   getFigures() {
+    let app = this;
     $.ajax({
-      method: 'GET'
-      url: '/figures',
+      method: 'GET',
+      url: '/figures.json',
       contentType: 'application/json'
     })
     .done(function(data) {
-      this.setState({ figures: JSON.parse(data) });
+      app.setState({ figures: data });
     });
+  }
+
+  componentDidMount() {
+    setInterval(this.getFigures, 5000)
   }
 
   render() {
