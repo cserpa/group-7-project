@@ -27,8 +27,7 @@
 
   <%= form_for(@rating) do |f| %>
 
-    <div class align='center'='row'>
-      <%= f.label :rating %>
+    <div class='ratingHeader' align='center'='row'>
       <%= f.collection_radio_buttons(:rating, @ratings_collection, :first, :last) %>
     </div>
 
@@ -53,35 +52,40 @@
 
 
 <h3 class='subheaders'>Reviews<h3>
-<ul>
+<ul class='reviewBlock'>
   <% @ratings.each do |rating| %>
     <% unless rating.review.empty? %>
-      <li align ='center'>
-        <span class='reviewDisplay'><%= rating.review %></span>
+      <li align='center'>
+      <div class='voteItems' align='center'>
+          <span class='reviewDisplay' align='center'><%= rating.review %></span>
+          <% if @current_user %>
+            <div class='voteButtons'>
+              <%= form_for(@vote, remote: true) do |f| %>
+                <%= f.hidden_field :user_id, value: @current_user.id %>
+                <%= f.hidden_field :rating_id, value: rating.id %>
+                <%= f.hidden_field :value, value: 1 %>
+                <%= f.button type: 'submit', name: 'commit', class: "voteButton" do %>
+                  <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
 
-      <div class='voteButtons'>
-        <% if @current_user %>
-          <%= form_for(@vote, remote: true) do |f| %>
-            <%= f.hidden_field :user_id, value: @current_user.id %>
-            <%= f.hidden_field :rating_id, value: rating.id %>
-            <%= f.hidden_field :value, value: 1 %>
-            <%= f.submit "Upvote", class: "voteButton" %>
+              <span class="rating" id=<%= rating.id.to_s %>></span>
+
+              <%= form_for(@vote, remote: true) do |f| %>
+                <%= f.hidden_field :user_id, value: @current_user.id %>
+                <%= f.hidden_field :rating_id, value: rating.id %>
+                <%= f.hidden_field :value, value: -1 %>
+                <%= f.button type: 'submit', name: 'commit', class: "voteButton" do %>
+                  <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+            </div>
           <% end %>
-
-            <p class="rating" id=<%= rating.id.to_s %>></p>
-
-          <%= form_for(@vote, remote: true) do |f| %>
-            <%= f.hidden_field :user_id, value: @current_user.id %>
-            <%= f.hidden_field :rating_id, value: rating.id %>
-            <%= f.hidden_field :value, value: -1 %>
-            <%= f.submit "Downvote", class: "voteButton" %>
-          <% end %>
-        <% end %>
       </div>
 
-        <% if @current_user && @current_user.admin? %>
-          <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }, class:'deleteReview'} %>
-        <% end %>
+      <% if @current_user && @current_user.admin? %>
+        <%= button_to 'Delete Review', rating_path(rating), { method: :delete, data: { confirm: 'Are you sure?' }, class:'deleteReview'} %>
+      <% end %>
 
       </li>
     <% end %>
