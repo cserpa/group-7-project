@@ -14,11 +14,17 @@ Chris Serpa
 
 * System dependencies:
   - brew install imagemagick
-  <!-- This is for profile picture sizing -->
   - brew install phantomjs
-  <!-- This is for JS testing in Capybara -->
+  - brew install npm
   - gem install bundler
   - bundle
+  - npm install
+
+* To run the app locally:
+  - use two terminal windows
+  - in one, run: rails s
+  - in the other, run: npm start
+  - visit localhost:3000
 
 * Configuration
   - you will need S3 keys in .env file with secrets from Amazon S3 account to use profile picture features.
@@ -27,14 +33,11 @@ Chris Serpa
 * Database creation
   - rake db:create && rake db:migrate to set up tables
 
-* Database initialization
+* Databse initialization
+  - rails db:seed to seed the database
 
 * How to run the test suite
   - run test suite with rake
-
-* Deployment instructions
-
-* ...
 
 # Figurate
 This is an app for rating historical figures, intended for entertainment purposes.
@@ -42,6 +45,9 @@ Users can create historical figures and then rate them, as well as rating the fi
 other people create. Each figure has an aggregate rating. The index page keeps track
 of the highest and lowest rated figures. You can also upvote or downvote someone's review.
 
+# How To Use
+Sign up and then bash your favorite hisotrical figures, or give props to the deserving.
+
 
 Link to Heroku App:
-https://quiet-reaches-97958.herokuapp.com/
+https://figur8te.herokuapp.com/
