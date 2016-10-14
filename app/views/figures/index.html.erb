@@ -1,36 +1,38 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 
-<h1 align='center'><a href="/figures">FiguRate</a></h1>
-
-<h2 align="center">Historical Figure Index</h2>
-
-<% if @figures.length >= 3 %>
-  <h2>Highest Rated:</h2>
-  <% if @figures %>
-    <ul>
-    <% @ranked_figures.slice(0,3).each do |figure| %>
-      <li/><%= link_to figure.name, figure_path(figure) %>
-    <% end %>
-    </ul>
-  <h2>Lowest Rated:</h2>
-    <ul>
-    <% @ranked_figures.slice(-3, 3).reverse.each do |figure| %>
-      <li/><%= link_to figure.name, figure_path(figure) %>
-    <% end %>
-    </ul>
+<div class="row">
+  <% if @figures.length >= 3 %>
+    <div class="small-10 medium-8 large-6 columns">
+      <h3>Highest Rated:</h3>
+      <% if @figures %>
+        <ul>
+        <% @ranked_figures.slice(0,3).each do |figure| %>
+          <li/><%= link_to figure.name, figure_path(figure) %>
+        <% end %>
+        </ul>
+      <h3>Lowest Rated:</h3>
+        <ul>
+        <% @ranked_figures.slice(-3, 3).reverse.each do |figure| %>
+          <li/><%= link_to figure.name, figure_path(figure) %>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
 
-<% if @figures.blank? %>
-  <h4>There are no figures that match <%= params[:search] %></h4>
-<% end %>
+  <% if @figures.blank? %>
+    <h4>There are no figures that match <%= params[:search] %></h4>
+  <% end %>
 
-<h3>Historical Figures</h3>
+  <div class="small-10 medium-8 large-6 columns">
+    <h3>Historical Figures</h3>
 
-<div id="app">
-  <ul>
-    <% @figures.each do |figure| %>
-      <li><%= link_to figure.name, figure_path(figure) %></li>
-    <% end %>
-  </ul>
+    <div id="app">
+      <ul>
+        <% @figures.each do |figure| %>
+          <li><%= link_to figure.name, figure_path(figure) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
