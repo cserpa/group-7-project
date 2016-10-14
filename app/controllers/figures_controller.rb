@@ -80,7 +80,6 @@ class FiguresController < ApplicationController
   end
 
   def figure_params
-    binding.pry
     params.require(:figure).permit(:name,
      :occupation,
      :era,
