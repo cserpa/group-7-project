@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getFigures();
     setInterval(this.getFigures, 5000)
   }
 
@@ -39,6 +38,10 @@ class App extends Component {
   };
 };
 
+$(document).ready(function () {
+    App.getFigures();
+    console.log('hit');
+});
 
 
 export default App;
