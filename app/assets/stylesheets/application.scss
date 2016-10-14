@@ -150,25 +150,48 @@ textarea {
 }
 
 .figureButtons {
-  display: inline-block;
+  display: inline-flex;
   font-size: 18px;
 }
 
 #showPageButtons {
-  right: 20px;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .reviewDisplay {
-  background-color: white;
   border-style: solid;
-  padding: 10px;
-  margin: 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+  width: auto;
+  display: inline-block;
 }
 
 .voteButtons {
-  margin: 20px;
+  margin: 15px;
   font-size: 18px;
+  display: inline-flex;
+}
+
+.voteButton {
+  display: inline-flex;
+  align-items: flex-end;
+  font-size: 30px;
+  padding: 5px;
+}
+
+.voteItems {
+  display: inline-flex;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.reviewBlock {
+  padding-bottom: 200px;
+}
+.rating {
+  display: inline-flex;
+  margin: 0px 10px;
+  align-items: center;
 }
 
 .deleteReview {
@@ -177,6 +200,11 @@ textarea {
 
 .ratingButton {
   font-size: 18px;
+}
+
+.ratingHeader {
+  margin: 0px;
+  padding: 0px;
 }
 
 .center-profile {
