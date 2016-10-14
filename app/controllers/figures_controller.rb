@@ -1,7 +1,7 @@
 class FiguresController < ApplicationController
   def index
     @user = current_user
-    @figures = Figure.all.to_a
+    @figures = Figure.all.order('name ASC')
     @ranked_figures = @figures.to_a.sort do |a, b|
       b.average_rating <=> a.average_rating
     end
