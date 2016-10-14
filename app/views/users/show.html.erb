@@ -6,7 +6,7 @@
   <%= image_tag(@user.avatar.large_avatar) %>
 
 
-  <h3>Your Figures:</h3>
+  <h2><%= @user.name %></h2>
   <% if @user.figures %>
     <% @user.figures.each do |figure| %>
       <div class="small-6 medium-6 large-6 columns">

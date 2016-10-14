@@ -40,11 +40,7 @@ class FiguresController < ApplicationController
     @user = current_user
     figure = Figure.find(params[:id])
     figure.update_attributes(figure_params)
-    if @user.role == 'member'
-      redirect_to user_path(@user)
-    else
-      redirect_to root_path
-    end
+    redirect_to figure_path(figure)
   end
 
   def create
