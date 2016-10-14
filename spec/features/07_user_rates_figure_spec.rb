@@ -18,7 +18,7 @@ feature 'user adds rating for historical figure' do
     click_button 'Submit Rating'
 
     expect(page).to have_content 'Rating submitted successfully!'
-    expect(page).to have_content 'Average Rating: 5'
+    expect(page).to have_content 'Average Rating 5'
   end
 
   scenario 'user adds rating successful with review' do
@@ -30,7 +30,7 @@ feature 'user adds rating for historical figure' do
     click_button 'Submit Rating'
 
     expect(page).to have_content 'Rating submitted successfully!'
-    expect(page).to have_content 'Average Rating: 5'
+    expect(page).to have_content 'Average Rating 5'
     expect(page).to have_content 'This guy was so nice, but so ugly.'
   end
 
