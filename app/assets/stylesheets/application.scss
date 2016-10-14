@@ -8,7 +8,7 @@ body {
   font-size: 120px;
   padding-top: 20px;
   padding-left: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 h1 {
@@ -94,15 +94,59 @@ textarea {
   height: 100px
 }
 
+.figureHeader {
+  font-size: 80px;
+  text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
 .figureInfo {
-  border-style: solid;
-  border-width: small;
-  width: 40%;
+  width: 75%;
   margin: auto;
+}
+
+.figureInfoItem {
+  text-align: center;
+  font-size: 30px;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Rye', cursive;
+}
+
+.figureInfoItem.property {
+  font-size: 24px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.figureInfoItem.value {
+  font-size: 42px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.claim {
+  color: red;
+}
+
+#figureImage {
+  height: 400px;
+  width: 400px;
+  display: block;
+  margin: 5px auto;
+  padding: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: thick;
 }
 
 .subheaders {
   text-align: center;
+}
+
+#ratingFormHeader {
+  margin-top: 80px;
 }
 
 .figureButtons {
